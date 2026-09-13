@@ -36,7 +36,9 @@ SOURCES = [
     # mocniejszą kompresję niż zdjęcia oglądane wprost
     # duży kafelek: na komputerze prawie kwadrat, na telefonie szeroki pas
     ("1.jpeg", "collage-1-sq", [560, 1120], 1.03, 48),
-    ("1.jpeg", "collage-1-wide", [480, 760, 1040], 2.29, 48),
+    # kadr 1.6 zamiast szerszego - przy 2.29 kadr ze środka ucinał psu
+    # czubek głowy; na telefonie kafelek ma dokładnie te proporcje
+    ("1.jpeg", "collage-1-wide", [480, 760, 1040], 1.6, 48),
     # pozostałe kafelki mają w obu układach proporcje bliskie kwadratu
     ("2.jpeg", "collage-2", [240, 360, 560], 1.0, 48),
     ("3.jpeg", "collage-3", [240, 360, 560], 1.0, 48),
