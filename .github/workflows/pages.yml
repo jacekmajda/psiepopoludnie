@@ -1,9 +1,13 @@
 name: Publikacja na GitHub Pages
 
 # Strona to zwykłe pliki statyczne - nie ma kroku budowania.
-# Ten przepływ włącza GitHub Pages przy pierwszym uruchomieniu
-# (configure-pages z enablement) i publikuje zawartość repozytorium
-# przy każdej zmianie na gałęzi main.
+# Ten przepływ publikuje zawartość repozytorium przy każdej zmianie
+# na gałęzi main.
+#
+# Warunek: w Settings -> Pages -> Build and deployment trzeba raz
+# ręcznie ustawić Source na "GitHub Actions". Token przepływu nie ma
+# uprawnień administratora repozytorium, więc nie potrafi włączyć
+# Pages samodzielnie.
 
 on:
   push:
@@ -30,10 +34,8 @@ jobs:
       - name: Pobierz repozytorium
         uses: actions/checkout@v4
 
-      - name: Skonfiguruj (i w razie potrzeby włącz) GitHub Pages
+      - name: Skonfiguruj GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Spakuj stronę
         uses: actions/upload-pages-artifact@v3

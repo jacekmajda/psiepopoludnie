@@ -30,11 +30,15 @@ wygenerowania `img/` wystarczy wgrać je z powrotem pod te same nazwy.
 Strona stoi pod adresem
 **https://jacekmajda.github.io/psiepopoludnie/**.
 
-Publikacja dzieje się sama: każdy push na gałąź `main` uruchamia
+Raz, przed pierwszą publikacją, trzeba w **Settings → Pages → Build
+and deployment** ustawić **Source: GitHub Actions**. Token przepływu
+nie ma uprawnień administratora repozytorium, więc nie włączy Pages
+za nas.
+
+Dalej dzieje się to samo: każdy push na gałąź `main` uruchamia
 przepływ [`.github/workflows/pages.yml`](.github/workflows/pages.yml),
-który pakuje zawartość repozytorium i wysyła ją na Pages. Przy
-pierwszym uruchomieniu przepływ sam włącza Pages w ustawieniach repo,
-więc nie trzeba tam nic klikać. Postęp widać w zakładce **Actions**.
+który pakuje zawartość repozytorium i wysyła ją na Pages. Postęp widać
+w zakładce **Actions**.
 
 GitHub Pages sam włącza HTTP/2 i kompresję gzip, więc nie trzeba
 niczego konfigurować. Nie obsługuje za to własnych nagłówków -
