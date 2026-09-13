@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psie Popołudnie | Julia Stankiewicz - Trenerka Psów & Behawiorystka</title>
+    
+    <meta name="description" content="Psie Popołudnie - Julia Stankiewicz, trenerka psów i behawiorystka. Konsultacje behawioralne, treningi indywidualne i grupowe, trening medyczny, spacery komunikacyjne, obozy i wyjazdy z psem.">
+    <meta name="theme-color" content="#6B1D2F">
+    <link rel="canonical" href="https://psiepopoludnie.pl/">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="Psie Popołudnie">
+    <meta property="og:title" content="Psie Popołudnie | Julia Stankiewicz - Trenerka Psów & Behawiorystka">
+    <meta property="og:description" content="Konsultacje behawioralne, treningi indywidualne i grupowe, trening medyczny, spacery komunikacyjne oraz obozy z psem.">
+    <meta property="og:url" content="https://psiepopoludnie.pl/">
+    <meta property="og:image" content="https://psiepopoludnie.pl/img/collage-1-sq-1120.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Kroje pisma hostowane lokalnie (tylko znaki używane na stronie) -->
+    <link rel="preload" href="fonts/Montserrat-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/OpenSans-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="preload" as="image" type="image/avif" media="(max-width: 900px)"
+          imagesrcset="img/collage-1-wide-480.avif 480w, img/collage-1-wide-760.avif 760w, img/collage-1-wide-1040.avif 1040w"
+          imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" type="image/avif" media="(min-width: 901px)"
+          imagesrcset="img/collage-1-sq-560.avif 560w, img/collage-1-sq-1120.avif 1120w"
+          imagesizes="40vw" fetchpriority="high">
+
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(fonts/Montserrat-600.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(fonts/Montserrat-700.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url(fonts/Montserrat-800.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(fonts/OpenSans-400.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(fonts/OpenSans-600.woff2) format('woff2');
+        }
+
+        /* --- ZMIENNE I PALETA BARW (BORDOWA) --- */
+        :root {
+            --primary: #6B1D2F;       /* Głęboki bordowy z logo */
+            --primary-dark: #4A1220;  /* Ciemniejszy odcień bordowego */
+            --primary-light: #8B2D43;
+            --accent: #C87B65;        /* Ciepły, rdzawy beż */
+            --bg-light: #FDFBF7;      /* Kremowe tło główne */
+            --bg-secondary: #F6F1EC;  /* Jasne kremowo-beżowe tło sekcji */
+            --text-dark: #2A2325;     /* Ciemny grafit */
+            --text-muted: #5C5255;
+            --white: #FFFFFF;
+            
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --shadow: 0 4px 18px rgba(107, 29, 47, 0.08);
+            --radius: 12px;
+        }
+
+        /* --- LINK POMIJAJĄCY NAWIGACJĘ --- */
+        .skip-link {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -120%);
+            z-index: 2000;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 12px 22px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            transform: translate(-50%, 0);
+        }
+
+        /* --- RESET --- */
+        /* <picture> nie może tworzyć własnego pudełka - inaczej rozsypuje
+           siatkę kolażu; <source> nigdy niczego nie rysuje */
+        picture {
+            display: contents;
+        }
+
+        picture > source {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+        }
+
+        /* --- DEKORACJE AKCENTUJĄCE SVG --- */
+        .deco-icon {
+            display: inline-block;
+            vertical-align: middle;
+            fill: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .deco-icon:hover {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        /* ikonka domykająca nagłówek - zastępuje emoji, skaluje się
+           razem z tekstem, więc pasuje do każdego rozmiaru h2 */
+        .head-icon {
+            width: 0.78em;
+            height: 0.78em;
+            margin-left: 0.12em;
+            vertical-align: -0.04em;
+            opacity: 0.75;
+        }
+
+        .bg-watermark {
+            position: absolute;
+            opacity: 0.05;
+            fill: var(--primary);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- JUSTOWANIE TEKSTU CIĄGŁEGO ---
+           Wyrównanie obustronne obejmuje akapity z dłuższym tekstem.
+           Nagłówki, podpisy, przyciski i etykiety zostają bez zmian.
+           `hyphens: auto` wraz z `lang="pl"` dzieli wyrazy, dzięki czemu
+           w justowanym tekście nie robią się rzeki białych przerw. */
+        .intro-summary p,
+        .about-intro-text p,
+        .level-card p,
+        .herd-content p,
+        .offer-note-text p,
+        .offer-body > p,
+        .offer-signup p,
+        .offer-types li,
+        .rules-list li,
+        .voucher-intro p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+        }
+
+        /* --- PRZYCISKI --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 2px solid var(--white);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+
+        /* --- NAWIGACJA --- */
+        header {
+            background-color: rgba(253, 251, 247, 0.98);
+            backdrop-filter: blur(8px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(107, 29, 47, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 64px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* PRZYCISK HAMBURGERA MOBILNEGO */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--primary);
+            z-index: 1001;
+        }
+
+        .mobile-nav-toggle svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary);
+            display: block;
+        }
+
+        /* --- KOLAŻ - HERO SECTION --- */
+        .hero-collage-wrapper {
+            position: relative;
+            margin-top: 88px;
+            width: 100%;
+            min-height: 520px;
+            background-color: var(--primary-dark);
+            overflow: hidden;
+        }
+
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 260px);
+            gap: 4px;
+            width: 100%;
+            height: 100%;
+            filter: brightness(0.7) contrast(1.05);
+        }
+
+        .collage-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .item-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .collage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg, 
+                rgba(74, 18, 32, 0.45) 0%, 
+                rgba(42, 35, 37, 0.85) 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .overlay-content {
+            max-width: 900px;
+            color: var(--white);
+            z-index: 2;
+            position: relative;
+        }
+
+        .overlay-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.5px;
+        }
+
+        .overlay-content p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* --- OPIS POD KOLAŻEM --- */
+        .intro-summary {
+            background-color: var(--bg-secondary);
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-summary p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* podpis pod akapitem - własny wiersz, nie doklejony do tekstu */
+        .intro-summary .intro-signature {
+            max-width: 850px;
+            margin: 16px auto 0;
+            text-align: right;
+            text-justify: auto;
+            hyphens: manual;
+            -webkit-hyphens: manual;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--primary);
+        }
+
+        .intro-summary .bg-watermark-heart {
+            width: 180px;
+            height: 180px;
+            right: 30px;
+            top: 25px;
+            opacity: 0.06;
+            transform: translateY(15px);
+        }
+
+        /* --- PRZERYWNIKI SEKCJI SVG --- */
+        .dog-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 25px 20px;
+            background-color: var(--bg-light);
+            overflow: hidden;
+        }
+
+        .dog-divider.bg-secondary {
+            background-color: var(--bg-secondary);
+        }
+
+        .dog-divider .divider-line {
+            height: 2px;
+            flex: 1;
+            max-width: 200px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0.35;
+        }
+
+        /* --- SEKCJE OGÓLNE --- */
+        .section {
+            padding: 70px 20px;
+            position: relative;
+        }
+
+        .section-bg {
+            background-color: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* --- O MNIE --- */
+        .about-top-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-intro-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-intro-text p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            /* kadr przesunięty w lewo - przy środkowym ucinało Julię */
+            object-position: 70% center;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+        }
+
+        /* --- PROGRESS TIMELINE (PSI STOPY O RÓŻNEJ OPACITY) --- */
+        .level-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 20px;
+        }
+
+        .level-step {
+            display: flex;
+            gap: 25px;
+            position: relative;
+        }
+
+        .level-axis {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .level-node {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #EAE3DC;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #DDD2C7;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .level-step.completed .level-node {
+            background: var(--primary);
+            border-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .level-step.active .level-node {
+            background: var(--accent);
+            border-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 18px rgba(200, 123, 101, 0.5);
+        }
+
+        /* PRZEJŚCIE OPACITY DLA PSIK STÓP ORAZ WĘZŁÓW */
+        .level-step:nth-child(1) .level-node {
+            opacity: 0.40;
+        }
+
+        .level-step:nth-child(2) .level-node {
+            opacity: 0.70;
+        }
+
+        .level-step:nth-child(3) .level-node {
+            opacity: 1.0;
+        }
+
+        .paw-step-icon {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+            display: block;
+        }
+
+        .lvl-tag {
+            position: absolute;
+            top: -12px;
+            background: var(--primary-dark);
+            color: var(--white);
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        .level-bar-line {
+            width: 4px;
+            flex-grow: 1;
+            background: #E0D6CD;
+            margin: 6px 0;
+            border-radius: 2px;
+        }
+
+        .level-step.completed .level-bar-line {
+            background: var(--primary);
+        }
+
+        .level-step.active-line .level-bar-line {
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .level-card {
+            background: var(--white);
+            padding: 30px 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+            margin-bottom: 30px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .level-step.active .level-card {
+            border-left-color: var(--accent);
+            box-shadow: 0 6px 22px rgba(200, 123, 101, 0.15);
+        }
+
+        .level-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .level-step.active .level-card h3 {
+            color: var(--primary-dark);
+        }
+
+        .level-card p {
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .level-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- STADO (KORA, ARIA, TORI) --- */
+        .herd-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .herd-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(107, 29, 47, 0.05);
+            position: relative;
+        }
+
+        .herd-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .herd-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .herd-img {
+            aspect-ratio: 4 / 3;
+            background-color: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .herd-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            border-radius: 0;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* zdjęcie Tori jest pionowe - przy domyślnym kadrze z kafelka
+           wypadały jej łapy, więc okno kadru przesuwamy niżej */
+        .herd-img-tall img {
+            object-position: center 70%;
+        }
+
+        .herd-card:hover .herd-img img {
+            transform: scale(1.05);
+        }
+
+        /* przy pionowym zdjęciu powiększenie ucięłoby psa */
+        .herd-card:hover .herd-img-tall img {
+            transform: scale(1.02);
+        }
+
+        .herd-content {
+            padding: 25px;
+        }
+
+        .herd-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .herd-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- OFERTA: WSTĘP (LOKALIZACJA + REGULAMIN) --- */
+        .offer-note {
+            display: grid;
+            grid-template-columns: 1fr 0.75fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 60px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .offer-note-text {
+            padding: 40px 45px;
+        }
+
+        .offer-note-text h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .offer-note-text p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .offer-note-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .offer-note-img {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .inline-link {
+            color: var(--primary);
+            font-weight: 600;
+            border-bottom: 2px solid rgba(107, 29, 47, 0.25);
+            transition: border-color 0.3s ease;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        /* --- OFERTA: NAPRZEMIENNE WIERSZE ZDJĘCIE – OPIS --- */
+        .offer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 55px;
+        }
+
+        .offer-row {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .offer-row.reverse .offer-media {
+            order: 2;
+        }
+
+        .offer-media {
+            position: relative;
+        }
+
+        .offer-media img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+        }
+
+        /* zdjęcie pionowe w poziomej ramce - domyślny kadr ze środka ucinał
+           kubek, więc okno kadru przesuwamy niżej */
+        .offer-media-portrait img {
+            object-position: center 60%;
+        }
+
+        .offer-media .offer-badge {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .offer-body h3 {
+            font-size: 1.55rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .offer-body > p {
+            color: var(--text-dark);
+            margin-bottom: 18px;
+        }
+
+        .offer-types {
+            list-style: none;
+            margin: 0 0 22px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .offer-types-label {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .offer-types li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 0.98rem;
+            color: var(--text-dark);
+        }
+
+        .offer-types li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        .offer-signup {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 22px 25px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .section-bg .offer-signup {
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .offer-signup h4 {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .offer-signup p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .signup-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-sm {
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(107, 29, 47, 0.2);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-ghost:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- VOUCHERY --- */
+        .voucher-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .voucher-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid rgba(107, 29, 47, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .voucher-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(107, 29, 47, 0.18);
+        }
+
+        .voucher-thumb {
+            position: relative;
+            display: block;
+            background: var(--white);
+            border: none;
+            padding: 0;
+            cursor: zoom-in;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .voucher-thumb img {
+            width: 100%;
+            aspect-ratio: 2528 / 1795;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0;
+            display: block;
+        }
+
+        .voucher-thumb::after {
+            content: "Powiększ";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(74, 18, 32, 0.55);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .voucher-thumb:hover::after,
+        .voucher-thumb:focus-visible::after {
+            opacity: 1;
+        }
+
+        .voucher-card-body {
+            padding: 22px 25px 26px;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+            flex: 1;
+        }
+
+        .voucher-style-tag {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--primary);
+            font-family: var(--font-heading);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .voucher-card-body h3 {
+            font-size: 1.12rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .voucher-card-body p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* ZASADY */
+        .voucher-rules {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 45px 50px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .voucher-rules h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .voucher-rules > p {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .rules-list {
+            list-style: none;
+            counter-reset: rule;
+            columns: 2;
+            column-gap: 45px;
+        }
+
+        .rules-list li {
+            counter-increment: rule;
+            position: relative;
+            padding-left: 44px;
+            margin-bottom: 22px;
+            font-size: 0.97rem;
+            color: var(--text-dark);
+            break-inside: avoid;
+        }
+
+        .rules-list li::before {
+            content: counter(rule);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        /* CTA */
+        .voucher-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 45px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .voucher-cta h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .voucher-cta p {
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(42, 35, 37, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            z-index: 2000;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 88vh;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: var(--white);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 22px;
+            right: 28px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2.4rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 8px;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
+        /* --- KONTAKT --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            background: var(--white);
+            padding: 20px 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        /* okrągła plakietka z ikonką - ten sam zestaw ikon co w stopce */
+        .info-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+        }
+
+        .info-icon svg {
+            width: 21px;
+            height: 21px;
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .info-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .info-item a {
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-bottom: 1px solid rgba(107, 29, 47, 0.25);
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .info-item a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .info-item .info-sub {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E2DDD8;
+            border-radius: 8px;
+            font-family: inherit;
+            background-color: var(--bg-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
+        }
+
+        .form-group input.invalid,
+        .form-group textarea.invalid {
+            border-color: #C0392B;
+            background-color: #FDF3F2;
+        }
+
+        /* UKRYTA PUŁAPKA NA BOTY */
+        .form-honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .form-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .form-note a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-status {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-status.visible {
+            display: block;
+        }
+
+        .form-status.error {
+            color: #C0392B;
+        }
+
+        #cfSubmit[disabled] {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        .form-success h3 {
+            color: var(--primary);
+            margin: 14px 0 10px;
+            font-size: 1.35rem;
+        }
+
+        .form-success p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form-success a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- STOPKA --- */
+        /* --- STOPKA --- */
+        footer {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(120% 140% at 85% 0%, rgba(200, 123, 101, 0.28) 0%, transparent 55%),
+                linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 60%);
+            color: var(--white);
+            padding: 64px 20px 0;
+        }
+
+        /* falista krawędź oddzielająca stopkę od sekcji kontaktowej */
+        .footer-wave {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            display: block;
+            fill: var(--bg-light);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-brand .logo-img {
+            height: 72px;
+            /* logo jest kolorowe - na bordowym tle czytelniejsza jest biel */
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-tagline {
+            margin-top: 16px;
+            max-width: 30ch;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .footer-heading {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            /* jaśniejszy odcień akcentu - na bordowym tle sam --accent
+               nie wyrabia kontrastu 4.5:1 wymaganego dla drobnego tekstu */
+            color: #E8B6A3;
+            margin-bottom: 18px;
+        }
+
+        .footer-nav,
+        .footer-contact {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-nav a,
+        .footer-contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.88);
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .footer-nav a:hover,
+        .footer-contact a:hover,
+        .footer-nav a:focus-visible,
+        .footer-contact a:focus-visible {
+            color: var(--white);
+            transform: translateX(3px);
+        }
+
+        /* ikonki rysowane kreską - jeden zestaw reguł dla wszystkich */
+        .footer-icon,
+        .footer-social svg,
+        .footer-top-link svg {
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .footer-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            stroke: var(--accent);
+        }
+
+        .footer-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            transition: background-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .footer-social a:hover,
+        .footer-social a:focus-visible {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+        }
+
+        .footer-bottom {
+            position: relative;
+            z-index: 1;
+            margin-top: 52px;
+            padding: 20px 0 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .footer-credit a {
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .footer-credit a:hover,
+        .footer-credit a:focus-visible {
+            color: var(--white);
+            border-bottom-color: var(--white);
+        }
+
+        .footer-top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.88);
+            transition: color 0.25s ease;
+        }
+
+        .footer-top-link:hover,
+        .footer-top-link:focus-visible {
+            color: var(--white);
+        }
+
+        .footer-top-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            transition: transform 0.25s ease;
+        }
+
+        .footer-top-link:hover svg {
+            transform: translateY(-3px);
+        }
+
+        /* duża łapa jako delikatny znak wodny w rogu stopki */
+        .footer-paw {
+            position: absolute;
+            right: 36px;
+            bottom: 68px;
+            width: 180px;
+            height: 180px;
+            fill: var(--white);
+            opacity: 0.06;
+            transform: rotate(-14deg);
+            pointer-events: none;
+        }
+
+        /* --- RESPONSYWNOŚĆ I MENU MOBILNE --- */
+        @media (max-width: 900px) {
+            .logo-img {
+                height: 52px;
+            }
+
+            /* stopka: jedna kolumna, wszystko wyśrodkowane */
+            footer {
+                padding-top: 52px;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 34px;
+                justify-items: center;
+            }
+
+            .footer-tagline {
+                max-width: 34ch;
+            }
+
+            .footer-nav,
+            .footer-contact {
+                align-items: center;
+            }
+
+            .footer-nav a:hover,
+            .footer-contact a:hover {
+                transform: none;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-note {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                margin-top: 38px;
+                flex-direction: column-reverse;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-brand .logo-img {
+                height: 62px;
+            }
+
+            .footer-nav,
+            .footer-contact {
+                gap: 8px;
+            }
+
+            .footer-paw {
+                width: 150px;
+                height: 150px;
+                right: -24px;
+                bottom: 96px;
+            }
+
+            .hero-collage-wrapper {
+                margin-top: 76px;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-light);
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                border-bottom: 3px solid var(--primary);
+                gap: 15px;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 10px;
+                font-size: 1.1rem;
+            }
+
+            .about-top-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-img {
+                height: 320px;
+            }
+            .overlay-content h1 {
+                font-size: 2.1rem;
+            }
+            .collage-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 180px);
+            }
+            .item-large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            .contact-grid, .herd-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .level-step {
+                gap: 15px;
+            }
+            .level-node {
+                width: 50px;
+                height: 50px;
+            }
+            .paw-step-icon {
+                width: 22px;
+                height: 22px;
+            }
+            .level-card {
+                padding: 20px;
+            }
+
+            /* OFERTA NA MOBILE */
+            .offer-note {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .offer-note-text {
+                padding: 28px 25px;
+            }
+            .offer-note-img {
+                min-height: 220px;
+                max-height: 260px;
+                order: -1;
+            }
+            .offer-row {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .offer-row.reverse .offer-media {
+                order: 0;
+            }
+            .offer-media img {
+                height: 240px;
+            }
+            .offer-list {
+                gap: 45px;
+            }
+            .signup-buttons .btn {
+                width: 100%;
+            }
+
+            /* VOUCHERY NA MOBILE */
+            .voucher-gallery {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .voucher-rules {
+                padding: 30px 25px;
+            }
+            .rules-list {
+                columns: 1;
+            }
+            .voucher-cta {
+                padding: 30px 25px;
+            }
+            .voucher-cta h3 {
+                font-size: 1.4rem;
+            }
+            .lightbox {
+                padding: 15px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Psie Popołudnie",
+        "description": "Julia Stankiewicz - trenerka psów, behawiorystka i zoopsycholog. Konsultacje behawioralne, treningi indywidualne i grupowe, trening medyczny, spacery komunikacyjne oraz obozy z psem.",
+        "url": "https://psiepopoludnie.pl/",
+        "image": "https://psiepopoludnie.pl/img/collage-1-sq-1120.jpg",
+        "logo": "https://psiepopoludnie.pl/logo.svg",
+        "email": "julia@psiepopoludnie.pl",
+        "telephone": "+48605622815",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wrocław",
+            "addressCountry": "PL"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Wrocław"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Julia Stankiewicz",
+            "jobTitle": "Trenerka psów i behawiorystka"
+        },
+        "sameAs": [
+            "https://www.instagram.com/psie_popoludnie/"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Przejdź do treści</a>
+
+    <!-- NAWIGACJA -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="logo.svg" alt="Psie Popołudnie - Logo" class="logo-img" width="1920" height="1080">
+            </a>
+
+            <!-- PRZYCISK HAMBURGERA MOBILNEGO -->
+            <button class="mobile-nav-toggle" aria-label="Otwórz menu nawigacyjne" id="menuToggle">
+                <svg id="menuIcon" viewBox="0 0 448 512">
+                    <path d="M16 132h416c8.8 0 16-7.2 16-16V84c0-8.8-7.2-16-16-16H16C7.2 68 0 75.2 0 84v32c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16z"/>
+                </svg>
+            </button>
+
+            <!-- MENU -->
+            <nav aria-label="Menu główne">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Strona główna</a></li>
+                <li><a href="#o-mnie">O mnie</a></li>
+                <li><a href="#oferta">Oferta</a></li>
+                <li><a href="#vouchery">Vouchery</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Regulamin</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+    <!-- KOLAŻ - HERO SECTION -->
+    <section id="home" class="hero-collage-wrapper">
+        <div class="collage-grid">
+            <picture><source media="(max-width: 900px)" type="image/avif" srcset="img/collage-1-wide-480.avif 480w, img/collage-1-wide-760.avif 760w, img/collage-1-wide-1040.avif 1040w" sizes="100vw"><source media="(max-width: 900px)" type="image/jpeg" srcset="img/collage-1-wide-480.jpg 480w, img/collage-1-wide-760.jpg 760w, img/collage-1-wide-1040.jpg 1040w" sizes="100vw"><source type="image/avif" srcset="img/collage-1-sq-560.avif 560w, img/collage-1-sq-1120.avif 1120w" sizes="40vw"><source type="image/jpeg" srcset="img/collage-1-sq-560.jpg 560w, img/collage-1-sq-1120.jpg 1120w" sizes="40vw"><img class="collage-item item-large" src="img/collage-1-sq-560.jpg" width="560" height="544" alt="Szkolenie psa" fetchpriority="high" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-2-240.avif 240w, img/collage-2-360.avif 360w, img/collage-2-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-2-360.jpg" srcset="img/collage-2-240.jpg 240w, img/collage-2-360.jpg 360w, img/collage-2-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Trening z psem" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-3-240.avif 240w, img/collage-3-360.avif 360w, img/collage-3-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-3-360.jpg" srcset="img/collage-3-240.jpg 240w, img/collage-3-360.jpg 360w, img/collage-3-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Pies na spacerze" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-4-240.avif 240w, img/collage-4-360.avif 360w, img/collage-4-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-4-360.jpg" srcset="img/collage-4-240.jpg 240w, img/collage-4-360.jpg 360w, img/collage-4-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Komunikacja psów" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-5-240.avif 240w, img/collage-5-360.avif 360w, img/collage-5-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-5-360.jpg" srcset="img/collage-5-240.jpg 240w, img/collage-5-360.jpg 360w, img/collage-5-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Zajęcia w grupie" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-6-240.avif 240w, img/collage-6-360.avif 360w, img/collage-6-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-6-360.jpg" srcset="img/collage-6-240.jpg 240w, img/collage-6-360.jpg 360w, img/collage-6-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Spokojny pies" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="img/collage-7-240.avif 240w, img/collage-7-360.avif 360w, img/collage-7-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-7-360.jpg" srcset="img/collage-7-240.jpg 240w, img/collage-7-360.jpg 360w, img/collage-7-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Wesoły pudel" decoding="async"></picture>
+        </div>
+
+        <div class="collage-overlay">
+            <div class="overlay-content">
+                <svg class="bg-watermark" style="width: 240px; height: 240px; top: -60px; left: -80px; opacity: 0.08; fill: #ffffff;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+
+                <h1>Zrozum swojego psa.<br>Zbuduj relację na lata.</h1>
+                <p>Opanuj język psiej komunikacji i wejdź na wyższy poziom wzajemnego zrozumienia ze swoim czworonogiem.</p>
+                <div class="hero-buttons">
+                    <a href="#oferta" class="btn">
+                        <svg class="deco-icon" style="width:18px; height:18px; fill:var(--white);" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                        Zapisz się na zajęcia
+                    </a>
+                    <a href="#o-mnie" class="btn btn-outline">Poznaj mnie bliżej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPIS POD KOLAŻEM -->
+    <div class="intro-summary">
+        <svg class="bg-watermark bg-watermark-heart" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+        <svg class="bg-watermark" style="width:140px; height:140px; left: 30px; bottom: -10px; opacity: 0.05;" viewBox="0 0 512 512"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg>
+        
+        <div class="container">
+            <p>
+                <strong>Psie Popołudnie</strong> to przestrzeń, w której pomagam Wam opanować język psiej komunikacji i wejść na wyższy poziom wzajemnego zrozumienia. Wspieram właścicieli i ich czworonogi w budowaniu bezpiecznej, pełnej zaufania relacji, która przynosi spokój każdego dnia. Serdecznie zapraszam na treningi, podczas których wspólnie przełożymy tę wiedzę na Wasze codzienne życie.
+            </p>
+            <p class="intro-signature">— <em>Julia Stankiewicz</em></p>
+        </div>
+    </div>
+
+    <!-- PRZERYWNIK SEKCJI SVG 1 -->
+    <div class="dog-divider bg-secondary">
+        <div class="divider-line"></div>
+        <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- O MNIE -->
+    <section id="o-mnie" class="section section-bg">
+        <svg class="bg-watermark" style="width:280px; height:280px; left:-50px; bottom:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+
+        <div class="container">
+            <div class="about-top-grid">
+                <div class="about-intro-text">
+                    <h2>Cześć, tutaj Julia Stankiewicz <svg class="deco-icon head-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg></h2>
+                    <p>Jestem trenerką psów, behawiorystką oraz zoopsychologiem (absolwentką szkoły Silva Lupus z certyfikacją MEN). Regularnie uczestniczę w szkoleniach z zakresu psiej komunikacji oraz kursach i wykładach dotyczących rozwiązywania problemów behawioralnych, m.in. z obszaru treningu medycznego.</p>
+                </div>
+                <div class="about-img-wrapper">
+                    <picture><source type="image/avif" srcset="img/julia-400.avif 400w, img/julia-760.avif 760w, img/julia-960.avif 960w" sizes="(max-width:900px) 100vw, 460px"><img class="about-img" src="img/julia-960.jpg" srcset="img/julia-400.jpg 400w, img/julia-760.jpg 760w, img/julia-960.jpg 960w" sizes="(max-width:900px) 100vw, 460px" width="960" height="640" alt="Julia Stankiewicz - Trenerka Psów" loading="lazy" decoding="async"></picture>
+                </div>
+            </div>
+
+            <!-- PROGRESS TIMELINE (Z PSIĘMI STOPAMI OD NAJSLABSZEJ DO NAJMOCNIEJSZEJ OPACITY) -->
+            <div class="level-timeline">
+                
+                <!-- ETAP 1 - NAJSŁABSZA OPACITY (0.40) -->
+                <div class="level-step completed active-line">
+                    <div class="level-axis">
+                        <div class="level-node">
+                            <svg class="paw-step-icon" viewBox="0 0 512 512">
+                                <path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/>
+                            </svg>
+                        </div>
+                        <div class="level-bar-line"></div>
+                    </div>
+                    <div class="level-card">
+                        <h3>
+                             Moje początki i opolskie korzenie
+                        </h3>
+                        <p>Od dziecka wychowywałam się z psami, ale moja prawdziwa przygoda zaczęła się w 2015 roku od adopcji Kory, z którą zapisałam się na pierwsze szkolenie z posłuszeństwa.</p>
+                        <p>Niedługo potem nawiązałam regularną współpracę ze szkołą Top Dog w Opolu. Dzięki temu już w liceum zdobywałam praktykę, pomagając na zajęciach grupowych i indywidualnych. Angażowałam się też w wydarzenia zewnętrzne, prowadząc m.in. darmowe konsultacje behawioralne w MaxiZoo. W tym samym czasie zostałam wolontariuszką w Fundacji Fioletowy Pies, z której pod koniec 2016 roku trafiła do mnie na dom tymczasowy Aria. Razem z Arią i Korą stawiałam pierwsze kroki w psich sportach: flyballu, tropieniu oraz obedience.</p>
+                    </div>
+                </div>
+
+                <!-- ETAP 2 - ŚREDNIA OPACITY (0.70) -->
+                <div class="level-step completed active-line">
+                    <div class="level-axis">
+                        <div class="level-node">
+                            <svg class="paw-step-icon" viewBox="0 0 512 512">
+                                <path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/>
+                            </svg>
+                        </div>
+                        <div class="level-bar-line"></div>
+                    </div>
+                    <div class="level-card">
+                        <h3>
+                            Wrocławski rozdział i rozwój zawodowy
+                        </h3>
+                        <p>W 2018 roku przeprowadziłam się do Wrocławia, gdzie dalej nabierałam doświadczenia w behawiorze. W tamtym okresu intensywnie budowałam swoje portfolio, opisując przypadki pracy indywidualnej do zaliczenia kursu zoopsychologa.</p>
+                        <p>W 2021 roku zaczęłam prowadzić zajęcia jako jedna z trenerek we wrocławskiej szkole psów. Przez ponad 2 lata poznałam tam masę wspaniałych ludzi i ich czworonogów. Cały czas szukałam nowych wyzwań – uczestniczyłam w wielu ciekawych szkoleniach m.in. w warsztatach klikerowych z kurami. W 2022 roku do naszej rodziny dołączyła Tori, z którą spełniłam swoje małe marzenie i rozpoczęłam treningi frisbee.</p>
+                    </div>
+                </div>
+
+                <!-- ETAP 3 - PEŁNA/NAJMOCNIEJSZA OPACITY (1.0) -->
+                <div class="level-step active">
+                    <div class="level-axis">
+                        <div class="level-node">
+                            <svg class="paw-step-icon" viewBox="0 0 512 512">
+                                <path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="level-card">
+                        <h3>
+                            Od marzenia do „Psiego Popołudnia”
+                        </h3>
+                        <p>Wszystko zaczęło się od wizji, która w 2016 roku zyskała swoją nazwę. To wtedy założyłam na Instagramie profil „Psie Popołudnie”. Wymyśliłam sobie, że w przyszłości pod tym szyldem będę organizować dodatkowe zajęcia i spotkania w kawiarniach dla opiekunów psów.</p>
+                        <p>W 2024 roku to wieloletnie marzenie stało się rzeczywistością – oficjalnie założyłam firmę. Dziś z dumą realizuję swój cel: organizuję kawiarniane pogadanki, łączę psiarzy i tworzę bezpieczną przestrzeń na wspólne, wartościowe i pełne wiedzy „Psie Popołudnia”.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRZERYWNIK SEKCJI SVG 2 -->
+    <div class="dog-divider">
+        <div class="divider-line"></div>
+                        <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- POZNAJ MOJE STADO -->
+    <section id="stado" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Poznaj moje stado <svg class="deco-icon head-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg></h2>
+                <p>Moje czworonożne nauczycielki, inspiracje i towarzyszki codzienności.</p>
+            </div>
+            
+            <div class="herd-grid">
+                <div class="herd-card">
+                    <div class="herd-badge">
+                        <svg class="deco-icon" style="width:18px; height:18px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+                    </div>
+                    <div class="herd-img">
+                        <picture><source type="image/avif" srcset="img/kora-480.avif 480w, img/kora-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/kora-960.jpg" srcset="img/kora-480.jpg 480w, img/kora-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="640" alt="Kora – seniorka stada Julii Stankiewicz" loading="lazy" decoding="async"></picture>
+                    </div>
+                    <div class="herd-content">
+                        <h3>Kora</h3>
+                        <p>Seniorka rodu, od której wszystko się zaczęło w 2015 roku. To na niej uczyłam się podstaw psiej komunikacji i cierpliwości.</p>
+                    </div>
+                </div>
+
+                <div class="herd-card">
+                    <div class="herd-badge">
+                        <svg class="deco-icon" style="width:18px; height:18px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+                    </div>
+                    <div class="herd-img">
+                        <picture><source type="image/avif" srcset="img/aria-480.avif 480w, img/aria-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/aria-960.jpg" srcset="img/aria-480.jpg 480w, img/aria-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="640" alt="Aria – partnerka w tropieniu i psich sportach" loading="lazy" decoding="async"></picture>
+                    </div>
+                    <div class="herd-content">
+                        <h3>Aria</h3>
+                        <p>Adoptowana w 2016 roku z domku tymczasowego. Niezastąpiona partnerka w tropieniu i psich sportach.</p>
+                    </div>
+                </div>
+
+                <div class="herd-card">
+                    <div class="herd-badge">
+                        <svg class="deco-icon" style="width:18px; height:18px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+                    </div>
+                    <div class="herd-img herd-img-tall">
+                        <picture><source type="image/avif" srcset="img/tori-480.avif 480w, img/tori-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/tori-960.jpg" srcset="img/tori-480.jpg 480w, img/tori-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="1440" alt="Tori – najmłodsza w stadzie, pasjonatka dog frisbee" loading="lazy" decoding="async"></picture>
+                    </div>
+                    <div class="herd-content">
+                        <h3>Tori</h3>
+                        <p>Najmłodsza w stadzie, dołączyła w 2022 roku. Wulkan energii, z którym rozwijam pasję do dog frisbee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" class="section section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Oferta</h2>
+                <p>Sprawdź, jak mogę pomóc Tobie i Twojemu psu.</p>
+            </div>
+
+            <!-- WSTĘP: LOKALIZACJA I REGULAMIN -->
+            <div class="offer-note">
+                <div class="offer-note-text">
+                    <h3>
+                        <svg class="deco-icon" style="width:26px; height:26px;" viewBox="0 0 384 512"><path d="M192 0C86 0 0 86 0 192c0 87.4 117 243 168.3 307.2 12.3 15.3 35.1 15.3 47.4 0C267 435 384 279.4 384 192 384 86 298 0 192 0zm0 272c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80z"/></svg>
+                        Gdzie i na jakich zasadach się spotykamy?
+                    </h3>
+                    <p>Zajęcia standardowo odbywają się <strong>w plenerze w okolicach Parku Szczytnickiego</strong>, chyba że w opisie wydarzenia wskazano inną lokalizację.</p>
+                    <p>Regulamin zajęć jest dostępny <a href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" class="inline-link" target="_blank" rel="noopener">pod tym linkiem</a> oraz w stopce strony.</p>
+                </div>
+                <picture><source type="image/avif" srcset="img/oferta-wstep-640.avif 640w, img/oferta-wstep-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img class="offer-note-img" src="img/oferta-wstep-1280.jpg" srcset="img/oferta-wstep-640.jpg 640w, img/oferta-wstep-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Zajęcia z psem w plenerze w okolicach Parku Szczytnickiego" loading="lazy" decoding="async"></picture>
+            </div>
+
+            <!-- LISTA ZAJĘĆ: NAPRZEMIENNIE ZDJĘCIE – OPIS -->
+            <div class="offer-list">
+
+                <!-- 1. KONSULTACJE I TRENINGI INDYWIDUALNE -->
+                <div class="offer-row">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-konsultacje-640.avif 640w, img/oferta-konsultacje-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-konsultacje-1280.jpg" srcset="img/oferta-konsultacje-640.jpg 640w, img/oferta-konsultacje-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Konsultacje i treningi indywidualne z psem" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Konsultacje i treningi indywidualne</h3>
+                        <p>Lekcje w pełni dostosowane do potrzeb opiekuna i poziomu wyszkolenia psa. Pomagam zarówno w nauce podstaw posłuszeństwa, jak i w rozwiązywaniu problemów behawioralnych (m.in. reaktywność na bodźce, ciągnięcie na smyczy, problemy separacyjne, obrona zasobów, brak motywacji do pracy). Otrzymujesz jasny plan działania i stałe wsparcie w trakcie terapii. W zależności od potrzeb spotykamy się w plenerze, w Twoim domu lub online.</p>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>W celu zapisania się na zajęcia wypełnij ankietę. Odezwę się, aby ustalić termin.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://docs.google.com/forms/d/1GumvhkTfuZ1HukEER-Namp7tW_LQzBv4P89ltylHHso/viewform" target="_blank" rel="noopener">Wypełnij ankietę</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TRENING MEDYCZNY -->
+                <div class="offer-row reverse">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-medyczny-640.avif 640w, img/oferta-medyczny-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-medyczny-1280.jpg" srcset="img/oferta-medyczny-640.jpg 640w, img/oferta-medyczny-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Trening medyczny psa" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Trening medyczny</h3>
+                        <p>Zajęcia skierowane do psów, które mają problem z akceptacją zabiegów pielęgnacyjnych i weterynaryjnych. Uczymy psa współpracy i redukujemy stres związany z dotykiem. Spotkania realizujemy w gabinecie lub online.</p>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>Wypełnij formularz zgłoszeniowy. Odezwę się, aby ustalić termin.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://docs.google.com/forms/d/1g8yV19oP1cBGrXMN_yYuHHLOBy1r74FKt0rl9WYz8Xs/viewform" target="_blank" rel="noopener">Wypełnij formularz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SPACERY KOMUNIKACYJNE -->
+                <div class="offer-row">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-spacery-kom-640.avif 640w, img/oferta-spacery-kom-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-spacery-kom-1280.jpg" srcset="img/oferta-spacery-kom-640.jpg 640w, img/oferta-spacery-kom-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Spacery komunikacyjne – analiza psiej komunikacji" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Spacery komunikacyjne</h3>
+                        <p>Zajęcia poświęcone nabieraniu kompetencji społecznych, analizie psiej komunikacji oraz bezpiecznym interakcjom pod okiem specjalisty.</p>
+                        <div class="offer-types-label">Rodzaje treningów</div>
+                        <ul class="offer-types">
+                            <li><strong>Spacery indywidualne</strong> – spotkania szyte na miarę, na które osobiście dobieram dla Twojego psa odpowiedniego kompana (tzw. psiego asystenta). Kontroluję każdą interakcję, dbając o emocje obu psów, a wspólnie z Tobą analizuję ich mowę ciała.</li>
+                            <li><strong>Spacery grupowe (do 4 psów)</strong> – dla stałych kursantów, których psy szlifują swoje kompetencje społeczne. Uczymy się zauważać drobne sygnały: strategie radzenia sobie z napięciem, unikanie konfliktów, stawianie granic i różnice w komunikacji różnych psów.</li>
+                        </ul>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>Wypełnij formularz oceniający kompetencje psa. Odezwę się z propozycją odpowiedniej formy spaceru.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://docs.google.com/forms/d/1TDnlvDhGzrfZP7IHt4REKfEL5RDS1FtLH_Xn7cNuGrc/viewform" target="_blank" rel="noopener">Wypełnij formularz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. PSIE POPOŁUDNIA -->
+                <div class="offer-row reverse">
+                    <div class="offer-media offer-media-portrait">
+                        <picture><source type="image/avif" srcset="img/oferta-psie-popoludnia-640.avif 640w, img/oferta-psie-popoludnia-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-psie-popoludnia-1280.jpg" srcset="img/oferta-psie-popoludnia-640.jpg 640w, img/oferta-psie-popoludnia-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1200" height="1600" alt="Psie Popołudnia – spotkania edukacyjne dla opiekunów" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v256c0 44.2 35.8 80 80 80h240c44.2 0 80-35.8 80-80v-16h16c44.2 0 80-35.8 80-80V112c0-44.2-35.8-80-80-80zm32 160c0 17.7-14.3 32-32 32h-16V96h16c17.7 0 32 14.3 32 32v64z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Psie Popołudnia</h3>
+                        <p>Spotkania edukacyjne przeznaczone wyłącznie dla opiekunów – psy nie biorą w nich udziału.</p>
+                        <div class="offer-types-label">Rodzaje spotkań</div>
+                        <ul class="offer-types">
+                            <li><strong>Analizy nagrań uczestników</strong> – omawiamy klatka po klatce nadesłane przez Was filmy z psich interakcji oraz z codziennego życia (mijanie bodźców). Analizujemy mowę ciała psa i ustalamy, jak pomóc mu w danej sytuacji.</li>
+                            <li><strong>Pogadanki w kawiarni</strong> – kameralne spotkania o określonej wcześniej tematyce. Forma to ok. 1,5 h mojej prelekcji połączonej z Waszymi pytaniami oraz ok. 45 min luźnej rozmowy.</li>
+                        </ul>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>Zapisz się przez aplikację.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://umowpsa.pl/" target="_blank" rel="noopener">Zapisz się przez aplikację</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. SPACERY TRENINGOWE -->
+                <div class="offer-row">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-spacery-tren-640.avif 640w, img/oferta-spacery-tren-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-spacery-tren-1280.jpg" srcset="img/oferta-spacery-tren-640.jpg 640w, img/oferta-spacery-tren-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Spacery treningowe z elementami ćwiczeń" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Spacery treningowe</h3>
+                        <p>Zajęcia w formie spaceru równoległego z elementami ćwiczeń (fitness, mijanki, posłuszeństwo). Psy uczą się pracy w obecności innych czworonogów, rezygnacji z rozproszeń i czekania na swoją kolej, a opiekunowie – zarządzania przestrzenią psa.</p>
+                        <div class="offer-types-label">Rodzaje treningów</div>
+                        <ul class="offer-types">
+                            <li><strong>Dla młodziaków</strong> – do około 1,5 roku życia (poziom podstawowy).</li>
+                            <li><strong>Dla psów dorosłych</strong> – dla psów, które znają już podstawy posłuszeństwa.</li>
+                        </ul>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>Zapisz się przez aplikację.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://umowpsa.pl/" target="_blank" rel="noopener">Zapisz się przez aplikację</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. TRENINGI GRUPOWE -->
+                <div class="offer-row reverse">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-grupowe-640.avif 640w, img/oferta-grupowe-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-grupowe-1280.jpg" srcset="img/oferta-grupowe-640.jpg 640w, img/oferta-grupowe-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Treningi grupowe w małych grupach" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Treningi grupowe</h3>
+                        <p>Zajęcia w małych grupach (2–4 psy) dopasowane do stopnia zaawansowania uczestników.</p>
+                        <div class="offer-types-label">Rodzaje treningów</div>
+                        <ul class="offer-types">
+                            <li><strong>Przedszkole (dla najmłodszych)</strong> – nauka podstawowych komend (siad, leżeć, na miejsce), skupiania uwagi na opiekunie oraz oswajanie z różnymi przedmiotami, ludźmi i zabiegami pielęgnacyjnymi.</li>
+                            <li><strong>Podstawówka (dla znających podstawy)</strong> – praca nad motywacją do pracy z opiekunem i rezygnacją z rozproszeń przy innych psach oraz nauka spokojnego mijania bodźców.</li>
+                            <li><strong>Treningi grupowe VIP (dla stałych kursantów)</strong> – szlifowanie nabytych umiejętności w trudniejszych warunkach na zajęciach o różnorodnej tematyce (np. mijanki, przywołanie, rozproszenia). Dla psów zaawansowanych organizuję zajęcia miejskie oraz treningi z udziałem psich fotografów (z darmowym kadrem pamiątkowym).</li>
+                        </ul>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p><strong>Przedszkole i Podstawówka</strong> – zajęcia prowadzone we współpracy ze szkołą Top Dog.<br><strong>Treningi VIP</strong> – dla osób, które ukończyły u mnie wcześniejsze kursy; po zapisie dołącz do naszej zamkniętej grupy.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://docs.google.com/forms/d/1E8yhojLjY310sqypNkj-rwf8THXEBCu9O7_Vkimx93s/viewform" target="_blank" rel="noopener">Przedszkole i Podstawówka</a>
+                                <a class="btn btn-sm btn-ghost" href="https://umowpsa.pl/" target="_blank" rel="noopener">Treningi VIP – aplikacja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. OBOZY I WARSZTATY WYJAZDOWE -->
+                <div class="offer-row">
+                    <div class="offer-media">
+                        <picture><source type="image/avif" srcset="img/oferta-obozy-640.avif 640w, img/oferta-obozy-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-obozy-1280.jpg" srcset="img/oferta-obozy-640.jpg 640w, img/oferta-obozy-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Obozy i warsztaty wyjazdowe – Psie Gadanie" loading="lazy" decoding="async"></picture>
+                        <div class="offer-badge">
+                            <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+                        </div>
+                    </div>
+                    <div class="offer-body">
+                        <h3>Obozy i warsztaty wyjazdowe – Psie Gadanie</h3>
+                        <p>Wyjazdowe warsztaty w pełni poświęcone komunikacji na linii pies–pies oraz pies–przewodnik. Rozbieramy psią mowę na czynniki pierwsze, uczymy, jak wykorzystać tę wiedzę w praktyce oraz jak stawiać przed psem nowe wyzwania i uczyć go słuchania.</p>
+                        <div class="offer-signup">
+                            <h4>Zapisy</h4>
+                            <p>Zajęcia prowadzone we współpracy ze szkołą Top Dog – osobne zgłoszenia na obozy i na warsztaty.</p>
+                            <div class="signup-buttons">
+                                <a class="btn btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLSeykHMLzPMbTzpQiQvcWrp6GF6vsXfIJm3rP9MRF9NYLYvUgQ/viewform" target="_blank" rel="noopener">Zapisy – obozy</a>
+                                <a class="btn btn-sm btn-ghost" href="https://docs.google.com/forms/d/1vBl5BlDrQ4UGU66aotgyRYhNa3nwEgFh0qHhn_6dW70/viewform" target="_blank" rel="noopener">Zapisy – warsztaty</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRZERYWNIK SEKCJI SVG 3 -->
+    <div class="dog-divider">
+        <div class="divider-line"></div>
+        <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- VOUCHERY PODARUNKOWE -->
+    <section id="vouchery" class="section">
+        <svg class="bg-watermark" style="width:260px; height:260px; right:-40px; bottom:40px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Vouchery podarunkowe <svg class="deco-icon head-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h208V160h32v128h208c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"/></svg></h2>
+                <p>Wyjątkowy prezent dla bliskiej osoby i jej psa – do wyboru trzy wzory.</p>
+            </div>
+
+            <div class="voucher-gallery">
+                <div class="voucher-card">
+                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-elegancki-full.png" aria-label="Powiększ voucher: konsultacja indywidualna">
+                        <picture><source type="image/avif" srcset="img/voucher-elegancki-600.avif 600w, img/voucher-elegancki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-elegancki-1200.jpg" srcset="img/voucher-elegancki-600.jpg 600w, img/voucher-elegancki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na konsultację indywidualną – wzór elegancki" loading="lazy" decoding="async"></picture>
+                    </button>
+                    <div class="voucher-card-body">
+                        <span class="voucher-style-tag">Elegancki</span>
+                        <h3>Konsultacja indywidualna</h3>
+                        <p>Jedno spotkanie w pełni dopasowane do Was – w plenerze, w domu lub online.</p>
+                    </div>
+                </div>
+
+                <div class="voucher-card">
+                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-luzacki-full.png" aria-label="Powiększ voucher: pakiet 5 spotkań indywidualnych">
+                        <picture><source type="image/avif" srcset="img/voucher-luzacki-600.avif 600w, img/voucher-luzacki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-luzacki-1200.jpg" srcset="img/voucher-luzacki-600.jpg 600w, img/voucher-luzacki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spotkań indywidualnych – wzór luzacki" loading="lazy" decoding="async"></picture>
+                    </button>
+                    <div class="voucher-card-body">
+                        <span class="voucher-style-tag">Luzacki</span>
+                        <h3>Pakiet 5 spotkań indywidualnych</h3>
+                        <p>Cykl treningów, który daje czas na realną zmianę i pracę nad konkretnym celem.</p>
+                    </div>
+                </div>
+
+                <div class="voucher-card">
+                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-swiateczny-full.png" aria-label="Powiększ voucher: pakiet 5 spacerów komunikacyjnych">
+                        <picture><source type="image/avif" srcset="img/voucher-swiateczny-600.avif 600w, img/voucher-swiateczny-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-swiateczny-1200.jpg" srcset="img/voucher-swiateczny-600.jpg 600w, img/voucher-swiateczny-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spacerów komunikacyjnych – wzór świąteczny" loading="lazy" decoding="async"></picture>
+                    </button>
+                    <div class="voucher-card-body">
+                        <span class="voucher-style-tag">Świąteczny</span>
+                        <h3>Pakiet 5 spacerów komunikacyjnych</h3>
+                        <p>Nauka psiej komunikacji w praktyce, pod okiem specjalisty – idealny prezent pod choinkę.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voucher-rules">
+                <h3>
+                    <svg class="deco-icon" style="width:24px; height:24px;" viewBox="0 0 384 512"><path d="M369.9 97.9L286 14A48 48 0 0 0 252.1 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-24.9-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48zm250-143.7c-12.7-41.2-12.7-64.2-9.1-89.4-4.5-6.4-10.9-9.6-18.9-9.6-12.1 0-19.8 8.5-19.8 21.7 0 15.4 5.4 30.6 12.9 45.1-6.9 21.2-16.3 49.7-24.6 71.5-24.7 12.7-44.2 24.5-51.5 34.6-6.2 8.6-3.9 20.1 6.5 24.1 12.6 4.8 27.1-6.2 44.1-35.1 18.2-6 37.8-11.1 55.9-14.5 20.9 11.4 44.3 19.1 59.8 19.1 15.4 0 21.4-9.1 21.4-19.4 0-15.3-15.3-22.5-45.9-22.5-10.1 0-21.6.9-30.8 2.4z"/></svg>
+                    Zasady zakupu i realizacji voucherów
+                </h3>
+                <p>Prosimy o zapoznanie się z poniższymi zasadami przed zakupem.</p>
+
+                <ol class="rules-list">
+                    <li>Voucher można nabyć w formie elektronicznej (plik PDF do samodzielnego wydruku) lub fizycznej.</li>
+                    <li>Płatność za Voucher należy uiścić z góry przelewem na konto bankowe Organizatora. Voucher zostaje aktywowany i przekazany klientowi po zaksięgowaniu wpłaty.</li>
+                    <li>Voucher jest ważny przez okres <strong>6 miesięcy</strong> od daty jego zakupu. Data ważności jest każdorazowo wpisywana na Voucherze. Po upływie tego terminu Voucher wygasa, a niewykorzystane środki przepadają.</li>
+                    <li>Voucher nie podlega wymianie na gotówkę (w całości ani w części) oraz nie podlega zwrotowi.</li>
+                    <li>Posiadacz Vouchera jest zobowiązany do przestrzegania <a class="inline-link" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Głównego Regulaminu Zajęć „Psie Popołudnie”</a>. Nieobecność na umówionym treningu lub odwołanie go w czasie krótszym niż 48 h przed terminem skutkuje uznaniem danej lekcji za zrealizowaną, a jej wartość jest potrącana z Vouchera.</li>
+                    <li>Zakup oraz realizacja Vouchera są jednoznaczne z akceptacją niniejszych zasad oraz <a class="inline-link" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Głównego Regulaminu Zajęć „Psie Popołudnie”</a>.</li>
+                </ol>
+            </div>
+
+            <div class="voucher-cta">
+                <svg class="bg-watermark" style="width:220px; height:220px; right:-30px; top:-40px; opacity:0.1; fill:#ffffff;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                <h3>Zamów voucher</h3>
+                <p>Napisz lub zadzwoń, a wspólnie dobierzemy wzór i rodzaj zajęć. Voucher przygotuję z imieniem obdarowanej osoby i datą ważności.</p>
+                <a href="#kontakt" class="btn btn-outline">Skontaktuj się w sprawie vouchera</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+        <svg class="bg-watermark" style="width:220px; height:220px; right:-20px; top:30px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Skontaktuj się ze mną</h2>
+                <p>Zadzwoń, napisz lub zapisz się przez dedykowaną aplikację</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect><path d="m3.6 6.7 8.4 6 8.4-6"></path></svg></div>
+                        <div>
+                            <h3>E-mail</h3>
+                            <p><a href="mailto:julia@psiepopoludnie.pl">julia@psiepopoludnie.pl</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6.6 3.5h3l1.5 3.9-2 1.5a12.2 12.2 0 0 0 6 6l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2A17.6 17.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"></path></svg></div>
+                        <div>
+                            <h3>Telefon &amp; WhatsApp</h3>
+                            <p><a href="tel:+48605622815">+48 605 622 815</a> &nbsp;·&nbsp; <a href="https://wa.me/48605622815" target="_blank" rel="noopener">Napisz na WhatsAppie</a></p>
+                            <p class="info-sub">Zadzwoń lub napisz wiadomość bezpośrednio.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.6"></circle></svg></div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p><a href="https://www.instagram.com/psie_popoludnie/" target="_blank" rel="noopener">@psie_popoludnie</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle></svg></div>
+                        <div>
+                            <h3>Obszar działania</h3>
+                            <p>Wrocław i okolice</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2.5"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></div>
+                        <div>
+                            <h3>Zapisy na zajęcia</h3>
+                            <p>Przez formularze przy <a href="#oferta">poszczególnych zajęciach</a> lub <a href="https://umowpsa.pl/" target="_blank" rel="noopener">aplikację umowpsa.pl</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="cfName">Imię i Nazwisko</label>
+                            <input type="text" id="cfName" name="name" placeholder="Twoje imię" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cfContact">Adres e-mail / Telefon</label>
+                            <input type="text" id="cfContact" name="contact" placeholder="Twój kontakt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cfMessage">Wiadomość (Napisz parę słów o swoim psu)</label>
+                            <textarea id="cfMessage" name="message" placeholder="W czym mogę Wam pomóc?" required></textarea>
+                        </div>
+
+                        <!-- PUŁAPKA NA BOTY - ukryte pole, człowiek go nie wypełni -->
+                        <div class="form-honeypot" aria-hidden="true">
+                            <label for="cfCompany">Nie wypełniaj tego pola</label>
+                            <input type="text" id="cfCompany" name="company" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn" style="width:100%;" id="cfSubmit">
+                            <svg class="deco-icon" style="width:18px; height:18px; fill:var(--white);" viewBox="0 0 512 512"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg>
+                            <span id="cfSubmitLabel">Wyślij wiadomość</span>
+                        </button>
+
+                        <p class="form-note">Odpowiadam zwykle w ciągu 1–2 dni roboczych. Możesz też napisać bezpośrednio na <a href="mailto:julia@psiepopoludnie.pl">julia@psiepopoludnie.pl</a>.</p>
+                        <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <div class="form-success" id="cfSuccess" hidden>
+                        <svg class="deco-icon" style="width:44px; height:44px;" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-42 372L86 252l46-46 82 82 166-166 46 46-212 212z"/></svg>
+                        <h3>Dziękuję za wiadomość!</h3>
+                        <p>Odezwę się najszybciej, jak to możliwe. W pilnych sprawach napisz na WhatsAppie: <a href="https://wa.me/48605622815" target="_blank" rel="noopener">+48 605 622 815</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- STOPKA -->
+    <footer>
+        <svg class="footer-wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M0,0 C240,42 480,42 720,24 C960,6 1200,6 1440,26 L1440,0 Z"></path>
+        </svg>
+
+        <svg class="footer-paw" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <ellipse cx="52" cy="69" rx="26" ry="20"></ellipse>
+            <circle cx="25" cy="36" r="11"></circle>
+            <circle cx="44" cy="25" r="12"></circle>
+            <circle cx="64" cy="27" r="12"></circle>
+            <circle cx="81" cy="42" r="10"></circle>
+        </svg>
+
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <img src="logo.svg" alt="" class="logo-img" width="1920" height="1080">
+                    <p class="footer-tagline">Szkolenia i behawiorystyka bez przymusu - w tempie psa, z głową i dobrą zabawą.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/psie_popoludnie/" target="_blank" rel="noopener" aria-label="Instagram: psie_popoludnie">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.2" cy="6.8" r="0.6"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/48605622815" target="_blank" rel="noopener" aria-label="Napisz na WhatsAppie">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5Z"></path>
+                                <path d="M9.2 9.1c.6 2.1 2.2 3.7 4.3 4.3l1-1.2 2 .8v1.5c0 .6-.5 1.1-1.1 1a8 8 0 0 1-7.1-7.1c-.1-.6.4-1.1 1-1.1H11l.8 2-1.2 1Z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:julia@psiepopoludnie.pl" aria-label="Napisz e-mail">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect>
+                                <path d="m3.6 6.7 8.4 6 8.4-6"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="footer-col" aria-label="Menu w stopce">
+                    <h2 class="footer-heading">Na stronie</h2>
+                    <ul class="footer-nav">
+                        <li><a href="#o-mnie">O mnie</a></li>
+                        <li><a href="#stado">Moje stado</a></li>
+                        <li><a href="#oferta">Oferta</a></li>
+                        <li><a href="#vouchery">Vouchery</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a id="regulamin" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Regulamin zajęć</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col">
+                    <h2 class="footer-heading">Zadzwoń, napisz</h2>
+                    <ul class="footer-contact">
+                        <li>
+                            <a href="mailto:julia@psiepopoludnie.pl">
+                                <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect>
+                                    <path d="m3.6 6.7 8.4 6 8.4-6"></path>
+                                </svg>
+                                julia@psiepopoludnie.pl
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+48605622815">
+                                <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M6.6 3.5h3l1.5 3.9-2 1.5a12.2 12.2 0 0 0 6 6l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2A17.6 17.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"></path>
+                                </svg>
+                                +48 605 622 815
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/psie_popoludnie/" target="_blank" rel="noopener">
+                                <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                    <circle cx="12" cy="12" r="4"></circle>
+                                    <circle cx="17.2" cy="6.8" r="0.6"></circle>
+                                </svg>
+                                @psie_popoludnie
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="footer-note">
+                        <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z"></path>
+                            <circle cx="12" cy="10" r="2.6"></circle>
+                        </svg>
+                        Wrocław i okolice - dojeżdżam do Was
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Psie Popołudnie | Julia Stankiewicz. Wszelkie prawa zastrzeżone.</p>
+                <p class="footer-credit">Projekt i wykonanie strony: <a href="https://majda.org" target="_blank" rel="noopener">majda.org</a></p>
+                <a class="footer-top-link" href="#home">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 19V5m-7 7 7-7 7 7"></path>
+                    </svg>
+                    Wróć na górę
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX VOUCHERÓW -->
+    <div class="lightbox" id="voucherLightbox" role="dialog" aria-modal="true" aria-label="Podgląd vouchera">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zamknij podgląd">&times;</button>
+        <img id="lightboxImg" alt="Podgląd vouchera podarunkowego">
+    </div>
+
+    <!-- SKRYPT OBSŁUGI MENU MOBILNEGO -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        /* PODGLĄD VOUCHERÓW */
+        const lightbox = document.getElementById('voucherLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        let lastFocused = null;
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            lightboxClose.focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            // pusty src to żądanie do samej strony - lepiej zdjąć atrybut
+            lightboxImg.removeAttribute('src');
+            document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
+        }
+
+        document.querySelectorAll('.voucher-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                lastFocused = thumb;
+                openLightbox(thumb.dataset.voucher);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        });
+
+        /* =========================================================
+           FORMULARZ KONTAKTOWY -> GOOGLE FORMS
+           ---------------------------------------------------------
+           Aby wiadomości trafiały do Arkusza Google, uzupełnij
+           poniższe 4 wartości (instrukcja w pliku FORMULARZ.md).
+           Dopóki pola zawierają "WKLEJ_...", formularz otwiera
+           program pocztowy z gotową treścią wiadomości.
+           ========================================================= */
+        const GOOGLE_FORM = {
+            action: 'https://docs.google.com/forms/d/e/WKLEJ_ID_FORMULARZA/formResponse',
+            name:    'entry.WKLEJ_ID_POLA_IMIE',
+            contact: 'entry.WKLEJ_ID_POLA_KONTAKT',
+            message: 'entry.WKLEJ_ID_POLA_WIADOMOSC'
+        };
+
+        const CONTACT_EMAIL = 'julia@psiepopoludnie.pl';
+
+        const contactForm = document.getElementById('contactForm');
+
+        if (contactForm) {
+            const submitBtn = document.getElementById('cfSubmit');
+            const submitLabel = document.getElementById('cfSubmitLabel');
+            const statusEl = document.getElementById('cfStatus');
+            const successEl = document.getElementById('cfSuccess');
+            const isConfigured = !GOOGLE_FORM.action.includes('WKLEJ_');
+
+            function showStatus(text, isError) {
+                statusEl.textContent = text;
+                statusEl.classList.toggle('error', !!isError);
+                statusEl.classList.toggle('visible', !!text);
+            }
+
+            function validate(fields) {
+                let ok = true;
+                fields.forEach(field => {
+                    const empty = !field.value.trim();
+                    field.classList.toggle('invalid', empty);
+                    if (empty) ok = false;
+                });
+                return ok;
+            }
+
+            function sendByMail(name, contact, message) {
+                const subject = 'Wiadomość ze strony psiepopoludnie.pl';
+                const body = 'Imię i nazwisko: ' + name + '\nKontakt: ' + contact + '\n\n' + message;
+                window.location.href = 'mailto:' + CONTACT_EMAIL +
+                    '?subject=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+            }
+
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const nameField = document.getElementById('cfName');
+                const contactField = document.getElementById('cfContact');
+                const messageField = document.getElementById('cfMessage');
+
+                if (!validate([nameField, contactField, messageField])) {
+                    showStatus('Uzupełnij wszystkie pola, aby wysłać wiadomość.', true);
+                    return;
+                }
+
+                /* bot wypełnił ukryte pole - udajemy sukces i nic nie wysyłamy */
+                if (document.getElementById('cfCompany').value) {
+                    contactForm.hidden = true;
+                    successEl.hidden = false;
+                    return;
+                }
+
+                const name = nameField.value.trim();
+                const contact = contactField.value.trim();
+                const message = messageField.value.trim();
+
+                if (!isConfigured) {
+                    showStatus('');
+                    sendByMail(name, contact, message);
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitLabel.textContent = 'Wysyłanie...';
+                showStatus('');
+
+                const data = new FormData();
+                data.append(GOOGLE_FORM.name, name);
+                data.append(GOOGLE_FORM.contact, contact);
+                data.append(GOOGLE_FORM.message, message);
+
+                try {
+                    /* Google Forms nie zwraca nagłówków CORS - stąd tryb no-cors.
+                       Odpowiedzi nie da się odczytać, ale zgłoszenie zostaje zapisane. */
+                    await fetch(GOOGLE_FORM.action, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: data
+                    });
+                    contactForm.hidden = true;
+                    successEl.hidden = false;
+                } catch (err) {
+                    submitBtn.disabled = false;
+                    submitLabel.textContent = 'Wyślij wiadomość';
+                    showStatus('Nie udało się wysłać wiadomości. Napisz proszę na ' + CONTACT_EMAIL + '.', true);
+                }
+            });
+
+            /* czyszczenie oznaczenia błędu podczas pisania */
+            contactForm.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', () => field.classList.remove('invalid'));
+            });
+        }
+    </script>
+</body>
+</html>

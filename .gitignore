@@ -1,0 +1,21 @@
+# Oryginalne zdjęcia (dziesiątki MB) zostają lokalnie / na Dysku Google.
+# Na stronę trafiają wyłącznie lekkie wersje z katalogu img/,
+# które tworzy `python3 build-images.py`.
+/1.jpeg
+/2.jpeg
+/3.jpeg
+/4.jpeg
+/5.jpeg
+/6.jpeg
+/7.jpeg
+/julia.jpeg
+/kora.jpeg
+/aria.jpeg
+/tori.jpeg
+/zdjęcia/
+/KOLAŻ - strona główna/
+/VOUCHER*.png
+/*.pdf
+
+.DS_Store
+__pycache__/
