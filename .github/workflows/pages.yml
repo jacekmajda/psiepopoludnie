@@ -1,0 +1,45 @@
+name: Publikacja na GitHub Pages
+
+# Strona to zwykłe pliki statyczne - nie ma kroku budowania.
+# Ten przepływ włącza GitHub Pages przy pierwszym uruchomieniu
+# (configure-pages z enablement) i publikuje zawartość repozytorium
+# przy każdej zmianie na gałęzi main.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# jednocześnie publikujemy tylko jedną wersję; trwających wdrożeń nie przerywamy
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+      - name: Skonfiguruj (i w razie potrzeby włącz) GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Spakuj stronę
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Opublikuj
+        id: deployment
+        uses: actions/deploy-pages@v4

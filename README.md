@@ -27,24 +27,38 @@ wygenerowania `img/` wystarczy wgrać je z powrotem pod te same nazwy.
 
 ## Publikacja na GitHub Pages
 
-1. Wypchnij repozytorium na GitHub.
-2. **Settings → Pages → Build and deployment**: źródło *Deploy from a
-   branch*, gałąź `main`, katalog `/ (root)`.
-3. Jeśli strona ma działać pod adresem `psiepopoludnie.pl`:
-   - w **Settings → Pages → Custom domain** wpisz `psiepopoludnie.pl`
-     (GitHub sam doda do repozytorium plik `CNAME`),
-   - u operatora domeny ustaw rekordy `A` na adresy GitHuba
-     (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
-     `185.199.111.153`) oraz `CNAME` dla `www` na `<konto>.github.io`,
-   - zaznacz **Enforce HTTPS**.
-4. Jeśli zostajesz przy adresie `<konto>.github.io/<repo>/`, popraw
-   w `index.html` adresy w znacznikach `canonical`, `og:url`, `og:image`
-   oraz w `sitemap.xml` i `robots.txt` - teraz wskazują na
-   `https://psiepopoludnie.pl/`.
+Strona stoi pod adresem
+**https://jacekmajda.github.io/psiepopoludnie/**.
+
+Publikacja dzieje się sama: każdy push na gałąź `main` uruchamia
+przepływ [`.github/workflows/pages.yml`](.github/workflows/pages.yml),
+który pakuje zawartość repozytorium i wysyła ją na Pages. Przy
+pierwszym uruchomieniu przepływ sam włącza Pages w ustawieniach repo,
+więc nie trzeba tam nic klikać. Postęp widać w zakładce **Actions**.
 
 GitHub Pages sam włącza HTTP/2 i kompresję gzip, więc nie trzeba
 niczego konfigurować. Nie obsługuje za to własnych nagłówków -
 pliki `_headers` czy `.htaccess` byłyby tam ignorowane.
+
+### Przejście na własną domenę
+
+Gdyby strona miała kiedyś działać pod `psiepopoludnie.pl`:
+
+1. **Settings → Pages → Custom domain**: wpisz `psiepopoludnie.pl`
+   (GitHub sam doda do repozytorium plik `CNAME`), zaznacz
+   **Enforce HTTPS**.
+2. U operatora domeny ustaw rekordy `A` na adresy GitHuba
+   (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+   `185.199.111.153`) oraz `CNAME` dla `www` na `jacekmajda.github.io`.
+3. Podmień adres `https://jacekmajda.github.io/psiepopoludnie/` na
+   `https://psiepopoludnie.pl/` w `index.html` (znaczniki `canonical`,
+   `og:url`, `og:image` oraz blok JSON-LD) i w plikach `sitemap.xml`
+   i `robots.txt`.
+
+Dopóki strona stoi pod adresem projektowym, `robots.txt` jest tylko
+formalnością - wyszukiwarki czytają go wyłącznie z korzenia domeny,
+czyli z `jacekmajda.github.io/robots.txt`, a tym plikiem nie
+zarządzamy z tego repozytorium.
 
 ## Aktualizacja zdjęć
 
