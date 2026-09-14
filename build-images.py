@@ -65,6 +65,7 @@ SOURCES = [
     ("zdjęcia/psie popoludnie 1.jpeg", "oferta-psie-popoludnia", [640, 1280]),
     ("zdjęcia/sp trening.jpeg", "oferta-spacery-tren", [640, 1280]),
     ("zdjęcia/tr gr.jpeg", "oferta-grupowe", [640, 1280]),
+    ("TRENINGI GRUPOWE DRUGIE ZDJĘCIE.jpeg", "oferta-grupowe-2", [640, 1280]),
     ("zdjęcia/obozy i wyjazdy.jpeg", "oferta-obozy", [640, 1280]),
 
     # --- vouchery (miniatury; pełny podgląd kopiowany niżej jako PNG) ---
@@ -107,6 +108,20 @@ def crop_box(src_w, src_h, aspect):
     return src_w, round(src_w / aspect)
 
 
+def render(source, out_path, fmt, quality, crop_w, crop_h, target):
+    ext_fmt = "jpeg" if fmt == "jpeg" else fmt
+    run([
+        "sips",
+        "-s", "format", ext_fmt,
+        "-s", "formatOptions", str(quality),
+        # sips oczekuje kolejności: wysokość, szerokość
+        "-c", str(crop_h), str(crop_w),
+        "--resampleWidth", str(target),
+        source, "--out", out_path,
+    ])
+    return dimensions(out_path)
+
+
 def build(source, base, widths, aspect=None, avif_quality=None):
     src_w, src_h = dimensions(source)
     if aspect:
@@ -117,21 +132,39 @@ def build(source, base, widths, aspect=None, avif_quality=None):
     for width in widths:
         # nie powiększamy ponad oryginał
         target = min(width, src_w)
-        height = round(src_h * target / src_w)
+        # Obie krawędzie muszą wyjść parzyste. Większe zdjęcia `sips` zapisuje
+        # w AVIF jako siatkę kafelków, a przeglądarki odrzucają taką siatkę,
+        # gdy szerokość albo wysokość jest nieparzysta - zdjęcie po prostu się
+        # nie pojawia (pusty prostokąt zamiast fotki).
+        target -= target % 2
 
-        for fmt, quality in (
-            ("avif", avif_quality or (GRAPHIC_AVIF_QUALITY if is_graphic else AVIF_QUALITY)),
-            ("jpeg", GRAPHIC_JPEG_QUALITY if is_graphic else JPEG_QUALITY),
-        ):
-            ext = "jpg" if fmt == "jpeg" else fmt
-            out_path = os.path.join(OUT_DIR, f"{base}-{width}.{ext}")
-            args = ["sips", "-s", "format", fmt, "-s", "formatOptions", str(quality)]
-            if aspect:
-                # sips oczekuje kolejności: wysokość, szerokość
-                args += ["-c", str(src_h), str(src_w)]
-            args += ["--resampleWidth", str(target), source, "--out", out_path]
-            run(args)
-            made.append((out_path, target, height, os.path.getsize(out_path)))
+        jpg_path = os.path.join(OUT_DIR, f"{base}-{width}.jpg")
+        jpeg_quality = GRAPHIC_JPEG_QUALITY if is_graphic else JPEG_QUALITY
+
+        # Wysokość wylicza sam `sips` z proporcji kadru, więc bywa nieparzysta.
+        # Zamiast zgadywać jego zaokrąglenie, podcinamy kadr o pojedyncze
+        # piksele (niewidoczne) i sprawdzamy wynik - JPEG zapisuje się szybko,
+        # więc służy za próbę przed kosztownym kodowaniem AVIF.
+        crop_h = src_h
+        for _ in range(32):
+            out_w, out_h = render(source, jpg_path, "jpeg", jpeg_quality,
+                                  src_w, crop_h, target)
+            if out_h % 2 == 0:
+                break
+            crop_h -= 1
+        else:
+            raise RuntimeError(f"{base}-{width}: nie udało się uzyskać parzystej wysokości")
+
+        avif_path = os.path.join(OUT_DIR, f"{base}-{width}.avif")
+        render(source, avif_path, "avif",
+               avif_quality or (GRAPHIC_AVIF_QUALITY if is_graphic else AVIF_QUALITY),
+               src_w, crop_h, target)
+
+        for path in (avif_path, jpg_path):
+            w, h = dimensions(path)
+            if w % 2 or h % 2:
+                raise RuntimeError(f"{path}: nieparzysty rozmiar {w}x{h}")
+            made.append((path, w, h, os.path.getsize(path)))
 
     return made
 
