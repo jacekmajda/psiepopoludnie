@@ -123,6 +123,10 @@
 
         html {
             scroll-behavior: smooth;
+            /* pasek nawigacji jest przyklejony do góry ekranu, więc skok do
+               sekcji musi zatrzymać się niżej - inaczej pasek zasłania
+               nagłówek. Nadpisywane przez `scroll-margin-top` na sekcjach */
+            scroll-padding-top: 88px;
         }
 
         body {
@@ -441,7 +445,9 @@
             align-items: center;
             justify-content: center;
             gap: 16px;
-            padding: 25px 20px;
+            /* wysokość całego przerywnika to 2 x padding + 20px ikony;
+               zmieniając padding trzeba poprawić `scroll-margin-top` sekcji */
+            padding: 14px 20px;
             background-color: var(--bg-light);
             overflow: hidden;
         }
@@ -460,8 +466,13 @@
 
         /* --- SEKCJE OGÓLNE --- */
         .section {
-            padding: 70px 20px;
+            padding: 22px 20px 70px;
             position: relative;
+            /* dokładana do `scroll-padding-top` wysokość przerywnika z łapką,
+               który stoi tuż nad sekcją - dzięki temu po kliknięciu w menu
+               nagłówek sekcji nie chowa się pod paskiem nawigacji, a nad nim
+               widać jeszcze przerywnik */
+            scroll-margin-top: 48px;
             /* znaki wodne wystają poza sekcję (np. right: -40px) - bez
                przycięcia robią poziomy pasek przewijania na telefonie */
             overflow: hidden;
@@ -499,7 +510,9 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
-            align-items: center;
+            /* wyrównanie do góry, nie do środka - inaczej nagłówek "Cześć..."
+               zjeżdża na środek wysokości zdjęcia i odsuwa się od przerywnika */
+            align-items: start;
             margin-bottom: 50px;
         }
 
@@ -832,6 +845,13 @@
             position: relative;
         }
 
+        /* dwa zdjęcia jedno pod drugim w jednej kolumnie wiersza oferty */
+        .offer-media-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .offer-media img {
             width: 100%;
             height: 340px;
@@ -959,38 +979,32 @@
         }
 
         /* --- VOUCHERY --- */
+        /* same wzory voucherów, bez podpisów - zaraz nad "Zamów voucher" */
         .voucher-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .voucher-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            border: 1px solid rgba(107, 29, 47, 0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .voucher-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(107, 29, 47, 0.18);
+            margin-bottom: 40px;
         }
 
         .voucher-thumb {
             position: relative;
             display: block;
             background: var(--white);
-            border: none;
+            border: 1px solid rgba(107, 29, 47, 0.08);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
             padding: 0;
             cursor: zoom-in;
             width: 100%;
             line-height: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .voucher-thumb:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(107, 29, 47, 0.18);
         }
 
         .voucher-thumb img {
@@ -1026,40 +1040,9 @@
             opacity: 1;
         }
 
-        .voucher-card-body {
-            padding: 22px 25px 26px;
-            text-align: center;
-            border-top: 3px solid var(--primary);
-            flex: 1;
-        }
-
-        .voucher-style-tag {
-            display: inline-block;
-            background: var(--bg-secondary);
-            color: var(--primary);
-            font-family: var(--font-heading);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 10px;
-        }
-
-        .voucher-card-body h3 {
-            font-size: 1.12rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .voucher-card-body p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-        }
-
         /* ZASADY */
         .voucher-rules {
+            margin-top: 40px;
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -1124,7 +1107,6 @@
             padding: 45px;
             border-radius: var(--radius);
             text-align: center;
-            margin-top: 40px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
@@ -1639,10 +1621,15 @@
                 bottom: 96px;
             }
 
+            /* na telefonie pasek nawigacji jest niższy (76px zamiast 88px) */
+            html {
+                scroll-padding-top: 76px;
+            }
+
             .hero-collage-wrapper {
                 margin-top: 76px;
             }
-            
+
             .mobile-nav-toggle {
                 display: block;
                 /* <nav> z rozwijanym menu jest pozycjonowany absolutnie,
@@ -1754,7 +1741,6 @@
             .voucher-gallery {
                 grid-template-columns: 1fr;
                 gap: 25px;
-                margin-bottom: 40px;
             }
             .voucher-rules {
                 padding: 30px 25px;
@@ -1841,7 +1827,7 @@
     <!-- KOLAŻ - HERO SECTION -->
     <section id="home" class="hero-collage-wrapper">
         <div class="collage-grid">
-            <picture><source media="(max-width: 900px)" type="image/avif" srcset="img/collage-1-wide16-480.avif 480w, img/collage-1-wide16-760.avif 760w, img/collage-1-wide16-1040.avif 1040w" sizes="100vw"><source media="(max-width: 900px)" type="image/jpeg" srcset="img/collage-1-wide16-480.jpg 480w, img/collage-1-wide16-760.jpg 760w, img/collage-1-wide16-1040.jpg 1040w" sizes="100vw"><source type="image/avif" srcset="img/collage-1-sq-560.avif 560w, img/collage-1-sq-1120.avif 1120w" sizes="40vw"><source type="image/jpeg" srcset="img/collage-1-sq-560.jpg 560w, img/collage-1-sq-1120.jpg 1120w" sizes="40vw"><img class="collage-item item-large" src="img/collage-1-sq-560.jpg" width="560" height="544" alt="Szkolenie psa" fetchpriority="high" decoding="async"></picture>
+            <picture><source media="(max-width: 900px)" type="image/avif" srcset="img/collage-1-wide16-480.avif 480w, img/collage-1-wide16-760.avif 760w, img/collage-1-wide16-1040.avif 1040w" sizes="100vw"><source media="(max-width: 900px)" type="image/jpeg" srcset="img/collage-1-wide16-480.jpg 480w, img/collage-1-wide16-760.jpg 760w, img/collage-1-wide16-1040.jpg 1040w" sizes="100vw"><source type="image/avif" srcset="img/collage-1-sq-560.avif 560w, img/collage-1-sq-1120.avif 1120w" sizes="40vw"><source type="image/jpeg" srcset="img/collage-1-sq-560.jpg 560w, img/collage-1-sq-1120.jpg 1120w" sizes="40vw"><img class="collage-item item-large" src="img/collage-1-sq-560.jpg" width="560" height="542" alt="Szkolenie psa" fetchpriority="high" decoding="async"></picture>
             <picture><source type="image/avif" srcset="img/collage-2-240.avif 240w, img/collage-2-360.avif 360w, img/collage-2-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-2-360.jpg" srcset="img/collage-2-240.jpg 240w, img/collage-2-360.jpg 360w, img/collage-2-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Trening z psem" decoding="async"></picture>
             <picture><source type="image/avif" srcset="img/collage-3-240.avif 240w, img/collage-3-360.avif 360w, img/collage-3-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-3-360.jpg" srcset="img/collage-3-240.jpg 240w, img/collage-3-360.jpg 360w, img/collage-3-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Pies na spacerze" decoding="async"></picture>
             <picture><source type="image/avif" srcset="img/collage-4-240.avif 240w, img/collage-4-360.avif 360w, img/collage-4-560.avif 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)"><img class="collage-item" src="img/collage-4-360.jpg" srcset="img/collage-4-240.jpg 240w, img/collage-4-360.jpg 360w, img/collage-4-560.jpg 560w" sizes="(max-width:900px) calc(50vw - 2px), calc(20vw - 4px)" width="360" height="360" alt="Komunikacja psów" decoding="async"></picture>
@@ -1855,7 +1841,6 @@
                 <svg class="bg-watermark" style="width: 240px; height: 240px; top: -60px; left: -80px; opacity: 0.08; fill: #ffffff;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
 
                 <h1>Zrozum swojego psa.<br>Zbuduj relację na lata.</h1>
-                <p>Opanuj język psiej komunikacji i wejdź na wyższy poziom wzajemnego zrozumienia ze swoim czworonogiem.</p>
                 <div class="hero-buttons">
                     <a href="#oferta" class="btn">
                         <svg class="deco-icon" style="width:18px; height:18px; fill:var(--white);" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
@@ -1938,8 +1923,8 @@
                         <h3>
                             Wrocławski rozdział i rozwój zawodowy
                         </h3>
-                        <p>W 2018 roku przeprowadziłam się do Wrocławia, gdzie dalej nabierałam doświadczenia w behawiorze. W tamtym okresu intensywnie budowałam swoje portfolio, opisując przypadki pracy indywidualnej do zaliczenia kursu zoopsychologa.</p>
-                        <p>W 2021 roku zaczęłam prowadzić zajęcia jako jedna z trenerek we wrocławskiej szkole psów. Przez ponad 2 lata poznałam tam masę wspaniałych ludzi i ich czworonogów. Cały czas szukałam nowych wyzwań – uczestniczyłam w wielu ciekawych szkoleniach m.in. w warsztatach klikerowych z kurami. W 2022 roku do naszej rodziny dołączyła Tori, z którą spełniłam swoje małe marzenie i rozpoczęłam treningi frisbee.</p>
+                        <p>W 2018 roku przeprowadziłam się do Wrocławia, gdzie dalej nabierałam doświadczenia w behawiorze. W tamtym okresie intensywnie budowałam swoje portfolio, opisując przypadki pracy indywidualnej do zaliczenia kursu zoopsychologa.</p>
+                        <p>W 2021 roku zaczęłam prowadzić zajęcia jako jedna z trenerek we wrocławskiej szkole dla psów. Przez ponad 2 lata poznałam tam masę wspaniałych ludzi i ich czworonogów. Cały czas szukałam nowych wyzwań – uczestniczyłam w wielu ciekawych szkoleniach m.in. w warsztatach klikerowych z kurami. W 2022 roku do naszej rodziny dołączyła Tori, z którą spełniłam swoje małe marzenie i rozpoczęłam treningi frisbee.</p>
                     </div>
                 </div>
 
@@ -1977,7 +1962,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Poznaj moje stado <svg class="deco-icon head-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg></h2>
-                <p>Moje czworonożne nauczycielki, inspiracje i towarzyszki codzienności.</p>
+                <p>Moja prywatna ekipa od zadań specjalnych i codziennego uśmiechu.</p>
             </div>
             
             <div class="herd-grid">
@@ -1989,8 +1974,8 @@
                         <picture><source type="image/avif" srcset="img/kora-480.avif 480w, img/kora-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/kora-960.jpg" srcset="img/kora-480.jpg 480w, img/kora-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="640" alt="Kora – seniorka stada Julii Stankiewicz" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="herd-content">
-                        <h3>Kora</h3>
-                        <p>Seniorka rodu, od której wszystko się zaczęło w 2015 roku. To na niej uczyłam się podstaw psiej komunikacji i cierpliwości.</p>
+                        <h3>Kora – 18 lat (mix)</h3>
+                        <p>Adoptowana w 2015 roku w wieku około 7 lat. Wcześniej spędziła 2 lata w fundacji, a swoje pierwsze lata życia wiodła samopas na wsi.</p>
                     </div>
                 </div>
 
@@ -2002,8 +1987,8 @@
                         <picture><source type="image/avif" srcset="img/aria-480.avif 480w, img/aria-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/aria-960.jpg" srcset="img/aria-480.jpg 480w, img/aria-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="640" alt="Aria – partnerka w tropieniu i psich sportach" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="herd-content">
-                        <h3>Aria</h3>
-                        <p>Adoptowana w 2016 roku z domku tymczasowego. Niezastąpiona partnerka w tropieniu i psich sportach.</p>
+                        <h3>Aria – 13 lat (mix)</h3>
+                        <p>Trafiła do mnie prosto z interwencji w 2016 roku, mając wtedy 3 lata. Pierwszy okres swojego życia spędziła na łańcuchu.</p>
                     </div>
                 </div>
 
@@ -2015,8 +2000,8 @@
                         <picture><source type="image/avif" srcset="img/tori-480.avif 480w, img/tori-960.avif 960w" sizes="(max-width:900px) 100vw, 380px"><img src="img/tori-960.jpg" srcset="img/tori-480.jpg 480w, img/tori-960.jpg 960w" sizes="(max-width:900px) 100vw, 380px" width="960" height="1440" alt="Tori – najmłodsza w stadzie, pasjonatka dog frisbee" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="herd-content">
-                        <h3>Tori</h3>
-                        <p>Najmłodsza w stadzie, dołączyła w 2022 roku. Wulkan energii, z którym rozwijam pasję do dog frisbee.</p>
+                        <h3>Tori – 4 lata (border collie)</h3>
+                        <p>Dołączyła do nas w 2022 roku, kupiona z hodowli. W domu wołamy na nią „Torcik” – urodziła się dokładnie w moje urodziny i zawsze śmiejemy się, że jest moim torcikiem urodzinowym.</p>
                     </div>
                 </div>
             </div>
@@ -2048,7 +2033,7 @@
                     <p>Zajęcia standardowo odbywają się <strong>w plenerze w okolicach Parku Szczytnickiego</strong>, chyba że w opisie wydarzenia wskazano inną lokalizację.</p>
                     <p>Regulamin zajęć jest dostępny <a href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" class="inline-link" target="_blank" rel="noopener">pod tym linkiem</a> oraz w stopce strony.</p>
                 </div>
-                <picture><source type="image/avif" srcset="img/oferta-wstep-640.avif 640w, img/oferta-wstep-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img class="offer-note-img" src="img/oferta-wstep-1280.jpg" srcset="img/oferta-wstep-640.jpg 640w, img/oferta-wstep-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Zajęcia z psem w plenerze w okolicach Parku Szczytnickiego" decoding="async"></picture>
+                <picture><source type="image/avif" srcset="img/oferta-wstep-640.avif 640w, img/oferta-wstep-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img class="offer-note-img" src="img/oferta-wstep-1280.jpg" srcset="img/oferta-wstep-640.jpg 640w, img/oferta-wstep-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Zajęcia z psem w plenerze w okolicach Parku Szczytnickiego" decoding="async"></picture>
             </div>
 
             <!-- LISTA ZAJĘĆ: NAPRZEMIENNIE ZDJĘCIE – OPIS -->
@@ -2057,7 +2042,7 @@
                 <!-- 1. KONSULTACJE I TRENINGI INDYWIDUALNE -->
                 <div class="offer-row">
                     <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-konsultacje-640.avif 640w, img/oferta-konsultacje-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-konsultacje-1280.jpg" srcset="img/oferta-konsultacje-640.jpg 640w, img/oferta-konsultacje-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Konsultacje i treningi indywidualne z psem" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-konsultacje-640.avif 640w, img/oferta-konsultacje-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-konsultacje-1280.jpg" srcset="img/oferta-konsultacje-640.jpg 640w, img/oferta-konsultacje-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Konsultacje i treningi indywidualne z psem" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
                         </div>
@@ -2078,7 +2063,7 @@
                 <!-- 2. TRENING MEDYCZNY -->
                 <div class="offer-row reverse">
                     <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-medyczny-640.avif 640w, img/oferta-medyczny-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-medyczny-1280.jpg" srcset="img/oferta-medyczny-640.jpg 640w, img/oferta-medyczny-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Trening medyczny psa" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-medyczny-640.avif 640w, img/oferta-medyczny-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-medyczny-1280.jpg" srcset="img/oferta-medyczny-640.jpg 640w, img/oferta-medyczny-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Trening medyczny psa" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
                         </div>
@@ -2099,7 +2084,7 @@
                 <!-- 3. SPACERY KOMUNIKACYJNE -->
                 <div class="offer-row">
                     <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-spacery-kom-640.avif 640w, img/oferta-spacery-kom-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-spacery-kom-1280.jpg" srcset="img/oferta-spacery-kom-640.jpg 640w, img/oferta-spacery-kom-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Spacery komunikacyjne – analiza psiej komunikacji" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-spacery-kom-640.avif 640w, img/oferta-spacery-kom-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-spacery-kom-1280.jpg" srcset="img/oferta-spacery-kom-640.jpg 640w, img/oferta-spacery-kom-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Spacery komunikacyjne – analiza psiej komunikacji" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
                         </div>
@@ -2110,7 +2095,7 @@
                         <div class="offer-types-label">Rodzaje treningów</div>
                         <ul class="offer-types">
                             <li><strong>Spacery indywidualne</strong> – spotkania szyte na miarę, na które osobiście dobieram dla Twojego psa odpowiedniego kompana (tzw. psiego asystenta). Kontroluję każdą interakcję, dbając o emocje obu psów, a wspólnie z Tobą analizuję ich mowę ciała.</li>
-                            <li><strong>Spacery grupowe (do 4 psów)</strong> – dla stałych kursantów, których psy szlifują swoje kompetencje społeczne. Uczymy się zauważać drobne sygnały: strategie radzenia sobie z napięciem, unikanie konfliktów, stawianie granic i różnice w komunikacji różnych psów.</li>
+                            <li><strong>Spacery grupowe (do 4 psów)</strong> – dla stałych kursantów, których psy szlifują swoje kompetencje społeczne. Uczymy się zauważać drobne sygnały: strategie radzenia sobie z napięciem, unikanie konfliktów, stawianie granic i różnice w komunikacji poszczególnych psów.</li>
                         </ul>
                         <div class="offer-signup">
                             <h4>Zapisy</h4>
@@ -2125,7 +2110,7 @@
                 <!-- 4. PSIE POPOŁUDNIA -->
                 <div class="offer-row reverse">
                     <div class="offer-media offer-media-portrait">
-                        <picture><source type="image/avif" srcset="img/oferta-psie-popoludnia-640.avif 640w, img/oferta-psie-popoludnia-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-psie-popoludnia-1280.jpg" srcset="img/oferta-psie-popoludnia-640.jpg 640w, img/oferta-psie-popoludnia-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1200" height="1600" alt="Psie Popołudnia – spotkania edukacyjne dla opiekunów" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-psie-popoludnia-640.avif 640w, img/oferta-psie-popoludnia-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-psie-popoludnia-1280.jpg" srcset="img/oferta-psie-popoludnia-640.jpg 640w, img/oferta-psie-popoludnia-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1200" height="1600" alt="Psie Popołudnia – spotkania edukacyjne dla opiekunów" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v256c0 44.2 35.8 80 80 80h240c44.2 0 80-35.8 80-80v-16h16c44.2 0 80-35.8 80-80V112c0-44.2-35.8-80-80-80zm32 160c0 17.7-14.3 32-32 32h-16V96h16c17.7 0 32 14.3 32 32v64z"/></svg>
                         </div>
@@ -2151,7 +2136,7 @@
                 <!-- 5. SPACERY TRENINGOWE -->
                 <div class="offer-row">
                     <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-spacery-tren-640.avif 640w, img/oferta-spacery-tren-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-spacery-tren-1280.jpg" srcset="img/oferta-spacery-tren-640.jpg 640w, img/oferta-spacery-tren-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Spacery treningowe z elementami ćwiczeń" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-spacery-tren-640.avif 640w, img/oferta-spacery-tren-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-spacery-tren-1280.jpg" srcset="img/oferta-spacery-tren-640.jpg 640w, img/oferta-spacery-tren-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Spacery treningowe z elementami ćwiczeń" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M480 192c-17.7 0-33.8 7.2-45.3 18.7L210.7 86.7C199.2 75.2 192 59.1 192 41.4 192 18.5 173.5 0 150.6 0S109.2 18.5 109.2 41.4c0 4.1.6 8.1 1.7 11.9-5.1-1.3-10.4-2-15.9-2C42.5 51.3 0 93.8 0 146.3c0 22.9 18.5 41.4 41.4 41.4 17.7 0 33.8-7.2 45.3-18.7l224 124c11.5 11.5 18.7 27.6 18.7 45.3 0 22.9 18.5 41.4 41.4 41.4s41.4-18.5 41.4-41.4c0-4.1-.6-8.1-1.7-11.9 5.1 1.3 10.4 2 15.9 2 52.5 0 95-42.5 95-95 0-22.9-18.5-41.4-41.4-41.4z"/></svg>
                         </div>
@@ -2176,8 +2161,9 @@
 
                 <!-- 6. TRENINGI GRUPOWE -->
                 <div class="offer-row reverse">
-                    <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-grupowe-640.avif 640w, img/oferta-grupowe-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-grupowe-1280.jpg" srcset="img/oferta-grupowe-640.jpg 640w, img/oferta-grupowe-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Treningi grupowe w małych grupach" loading="lazy" decoding="async"></picture>
+                    <div class="offer-media offer-media-stack">
+                        <picture><source type="image/avif" srcset="img/oferta-grupowe-640.avif 640w, img/oferta-grupowe-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-grupowe-1280.jpg" srcset="img/oferta-grupowe-640.jpg 640w, img/oferta-grupowe-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Treningi grupowe w małych grupach" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-grupowe-2-640.avif 640w, img/oferta-grupowe-2-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-grupowe-2-1280.jpg" srcset="img/oferta-grupowe-2-640.jpg 640w, img/oferta-grupowe-2-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Pies na zajęciach grupowych" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
                         </div>
@@ -2193,7 +2179,7 @@
                         </ul>
                         <div class="offer-signup">
                             <h4>Zapisy</h4>
-                            <p><strong>Przedszkole i Podstawówka</strong> – zajęcia prowadzone we współpracy ze szkołą Top Dog.<br><strong>Treningi VIP</strong> – dla osób, które ukończyły u mnie wcześniejsze kursy; po zapisie dołącz do naszej zamkniętej grupy.</p>
+                            <p><strong>Przedszkole i Podstawówka</strong> – zajęcia prowadzone we współpracy ze szkołą Top Dog.<br><strong>Treningi VIP</strong> – dla osób, które ukończyły u mnie wcześniejsze kursy, napisz do mnie i dołącz do naszej zamkniętej grupy.</p>
                             <div class="signup-buttons">
                                 <a class="btn btn-sm" href="https://docs.google.com/forms/d/1E8yhojLjY310sqypNkj-rwf8THXEBCu9O7_Vkimx93s/viewform" target="_blank" rel="noopener">Przedszkole i Podstawówka</a>
                                 <a class="btn btn-sm btn-ghost" href="https://umowpsa.pl/" target="_blank" rel="noopener">Treningi VIP – aplikacja</a>
@@ -2205,7 +2191,7 @@
                 <!-- 7. OBOZY I WARSZTATY WYJAZDOWE -->
                 <div class="offer-row">
                     <div class="offer-media">
-                        <picture><source type="image/avif" srcset="img/oferta-obozy-640.avif 640w, img/oferta-obozy-1280.avif 1280w" sizes="(max-width:900px) 100vw, 500px"><img src="img/oferta-obozy-1280.jpg" srcset="img/oferta-obozy-640.jpg 640w, img/oferta-obozy-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 500px" width="1280" height="853" alt="Obozy i warsztaty wyjazdowe – Psie Gadanie" loading="lazy" decoding="async"></picture>
+                        <picture><source type="image/avif" srcset="img/oferta-obozy-640.avif 640w, img/oferta-obozy-1280.avif 1280w" sizes="(max-width:900px) 100vw, 640px"><img src="img/oferta-obozy-1280.jpg" srcset="img/oferta-obozy-640.jpg 640w, img/oferta-obozy-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 640px" width="1280" height="852" alt="Obozy i warsztaty wyjazdowe – Psie Gadanie" loading="lazy" decoding="async"></picture>
                         <div class="offer-badge">
                             <svg class="deco-icon" style="width:20px; height:20px;" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
                         </div>
@@ -2215,7 +2201,7 @@
                         <p>Wyjazdowe warsztaty w pełni poświęcone komunikacji na linii pies–pies oraz pies–przewodnik. Rozbieramy psią mowę na czynniki pierwsze, uczymy, jak wykorzystać tę wiedzę w praktyce oraz jak stawiać przed psem nowe wyzwania i uczyć go słuchania.</p>
                         <div class="offer-signup">
                             <h4>Zapisy</h4>
-                            <p>Zajęcia prowadzone we współpracy ze szkołą Top Dog – osobne zgłoszenia na obozy i na warsztaty.</p>
+                            <p>Zajęcia prowadzone we współpracy ze szkołą Top Dog.</p>
                             <div class="signup-buttons">
                                 <a class="btn btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLSeykHMLzPMbTzpQiQvcWrp6GF6vsXfIJm3rP9MRF9NYLYvUgQ/viewform" target="_blank" rel="noopener">Zapisy – obozy</a>
                                 <a class="btn btn-sm btn-ghost" href="https://docs.google.com/forms/d/1vBl5BlDrQ4UGU66aotgyRYhNa3nwEgFh0qHhn_6dW70/viewform" target="_blank" rel="noopener">Zapisy – warsztaty</a>
@@ -2243,42 +2229,28 @@
         <div class="container">
             <div class="section-header">
                 <h2>Vouchery podarunkowe <svg class="deco-icon head-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h208V160h32v128h208c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"/></svg></h2>
-                <p>Wyjątkowy prezent dla bliskiej osoby i jej psa – do wyboru trzy wzory.</p>
+                <p>Wyjątkowy prezent dla bliskiej osoby i jej psa.</p>
             </div>
 
             <div class="voucher-gallery">
-                <div class="voucher-card">
-                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-elegancki-full.png" aria-label="Powiększ voucher: konsultacja indywidualna">
-                        <picture><source type="image/avif" srcset="img/voucher-elegancki-600.avif 600w, img/voucher-elegancki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-elegancki-1200.jpg" srcset="img/voucher-elegancki-600.jpg 600w, img/voucher-elegancki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na konsultację indywidualną – wzór elegancki" loading="lazy" decoding="async"></picture>
-                    </button>
-                    <div class="voucher-card-body">
-                        <span class="voucher-style-tag">Elegancki</span>
-                        <h3>Konsultacja indywidualna</h3>
-                        <p>Jedno spotkanie w pełni dopasowane do Was – w plenerze, w domu lub online.</p>
-                    </div>
-                </div>
+                <button type="button" class="voucher-thumb" data-voucher="img/voucher-luzacki-full.png" aria-label="Powiększ voucher: pakiet 5 spotkań indywidualnych">
+                    <picture><source type="image/avif" srcset="img/voucher-luzacki-600.avif 600w, img/voucher-luzacki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-luzacki-1200.jpg" srcset="img/voucher-luzacki-600.jpg 600w, img/voucher-luzacki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spotkań indywidualnych – wzór luzacki" loading="lazy" decoding="async"></picture>
+                </button>
 
-                <div class="voucher-card">
-                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-luzacki-full.png" aria-label="Powiększ voucher: pakiet 5 spotkań indywidualnych">
-                        <picture><source type="image/avif" srcset="img/voucher-luzacki-600.avif 600w, img/voucher-luzacki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-luzacki-1200.jpg" srcset="img/voucher-luzacki-600.jpg 600w, img/voucher-luzacki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spotkań indywidualnych – wzór luzacki" loading="lazy" decoding="async"></picture>
-                    </button>
-                    <div class="voucher-card-body">
-                        <span class="voucher-style-tag">Luzacki</span>
-                        <h3>Pakiet 5 spotkań indywidualnych</h3>
-                        <p>Cykl treningów, który daje czas na realną zmianę i pracę nad konkretnym celem.</p>
-                    </div>
-                </div>
+                <button type="button" class="voucher-thumb" data-voucher="img/voucher-elegancki-full.png" aria-label="Powiększ voucher: konsultacja indywidualna">
+                    <picture><source type="image/avif" srcset="img/voucher-elegancki-600.avif 600w, img/voucher-elegancki-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-elegancki-1200.jpg" srcset="img/voucher-elegancki-600.jpg 600w, img/voucher-elegancki-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na konsultację indywidualną – wzór elegancki" loading="lazy" decoding="async"></picture>
+                </button>
 
-                <div class="voucher-card">
-                    <button type="button" class="voucher-thumb" data-voucher="img/voucher-swiateczny-full.png" aria-label="Powiększ voucher: pakiet 5 spacerów komunikacyjnych">
-                        <picture><source type="image/avif" srcset="img/voucher-swiateczny-600.avif 600w, img/voucher-swiateczny-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-swiateczny-1200.jpg" srcset="img/voucher-swiateczny-600.jpg 600w, img/voucher-swiateczny-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spacerów komunikacyjnych – wzór świąteczny" loading="lazy" decoding="async"></picture>
-                    </button>
-                    <div class="voucher-card-body">
-                        <span class="voucher-style-tag">Świąteczny</span>
-                        <h3>Pakiet 5 spacerów komunikacyjnych</h3>
-                        <p>Nauka psiej komunikacji w praktyce, pod okiem specjalisty – idealny prezent pod choinkę.</p>
-                    </div>
-                </div>
+                <button type="button" class="voucher-thumb" data-voucher="img/voucher-swiateczny-full.png" aria-label="Powiększ voucher: pakiet 5 spacerów komunikacyjnych">
+                    <picture><source type="image/avif" srcset="img/voucher-swiateczny-600.avif 600w, img/voucher-swiateczny-1200.avif 1200w" sizes="(max-width:900px) 100vw, 380px"><img src="img/voucher-swiateczny-1200.jpg" srcset="img/voucher-swiateczny-600.jpg 600w, img/voucher-swiateczny-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 380px" width="1200" height="852" alt="Voucher podarunkowy na pakiet 5 spacerów komunikacyjnych – wzór świąteczny" loading="lazy" decoding="async"></picture>
+                </button>
+            </div>
+
+            <div class="voucher-cta">
+                <svg class="bg-watermark" style="width:220px; height:220px; right:-30px; top:-40px; opacity:0.1; fill:#ffffff;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
+                <h3>Zamów voucher</h3>
+                <p>Napisz lub zadzwoń, a wspólnie dobierzemy wzór i rodzaj zajęć.</p>
+                <a href="#kontakt" class="btn btn-outline">Skontaktuj się w sprawie vouchera</a>
             </div>
 
             <div class="voucher-rules">
@@ -2297,13 +2269,6 @@
                     <li>Zakup oraz realizacja Vouchera są jednoznaczne z akceptacją niniejszych zasad oraz <a class="inline-link" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Głównego Regulaminu Zajęć „Psie Popołudnie”</a>.</li>
                 </ol>
             </div>
-
-            <div class="voucher-cta">
-                <svg class="bg-watermark" style="width:220px; height:220px; right:-30px; top:-40px; opacity:0.1; fill:#ffffff;" viewBox="0 0 512 512"><path d="M256 224c-79.5 0-144 64.5-144 144 0 44.2 35.8 80 80 80 26.3 0 49.8-12.7 64-32 14.2 19.3 37.7 32 64 32 44.2 0 80-35.8 80-80 0-79.5-64.5-144-144-144zM104 176c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm304 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm-208-48c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48zm112 0c22.1 0 40-21.5 40-48s-17.9-48-40-48-40 21.5-40 48 17.9 48 40 48z"/></svg>
-                <h3>Zamów voucher</h3>
-                <p>Napisz lub zadzwoń, a wspólnie dobierzemy wzór i rodzaj zajęć. Voucher przygotuję z imieniem obdarowanej osoby i datą ważności.</p>
-                <a href="#kontakt" class="btn btn-outline">Skontaktuj się w sprawie vouchera</a>
-            </div>
         </div>
     </section>
 
@@ -2321,7 +2286,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Skontaktuj się ze mną</h2>
-                <p>Zadzwoń, napisz lub zapisz się przez dedykowaną aplikację</p>
+                <p>Zadzwoń, napisz lub zapisz się przez dedykowaną aplikację.</p>
             </div>
 
             <div class="contact-grid">
@@ -2367,7 +2332,7 @@
                 <div class="contact-form">
                     <form id="contactForm" novalidate>
                         <div class="form-group">
-                            <label for="cfName">Imię i Nazwisko</label>
+                            <label for="cfName">Imię</label>
                             <input type="text" id="cfName" name="name" placeholder="Twoje imię" required>
                         </div>
                         <div class="form-group">
@@ -2375,7 +2340,7 @@
                             <input type="text" id="cfContact" name="contact" placeholder="Twój kontakt" required>
                         </div>
                         <div class="form-group">
-                            <label for="cfMessage">Wiadomość (Napisz parę słów o swoim psu)</label>
+                            <label for="cfMessage">Wiadomość (Napisz parę słów o swoim psie)</label>
                             <textarea id="cfMessage" name="message" placeholder="W czym mogę Wam pomóc?" required></textarea>
                         </div>
 
@@ -2390,7 +2355,7 @@
                             <span id="cfSubmitLabel">Wyślij wiadomość</span>
                         </button>
 
-                        <p class="form-note">Odpowiadam zwykle w ciągu 1–2 dni roboczych. Możesz też napisać bezpośrednio na <a href="mailto:julia@psiepopoludnie.pl">julia@psiepopoludnie.pl</a>.</p>
+                        <p class="form-note">Odpowiadam zwykle w ciągu tygodnia. Możesz też napisać bezpośrednio na <a href="mailto:julia@psiepopoludnie.pl">julia@psiepopoludnie.pl</a>.</p>
                         <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
                     </form>
 
@@ -2425,7 +2390,7 @@
 
                 <div class="footer-brand">
                     <img src="logo.svg" alt="" class="logo-img" width="1920" height="1080">
-                    <p class="footer-tagline">Szkolenia i behawiorystyka bez przymusu - w tempie psa, z głową i dobrą zabawą.</p>
+                    <p class="footer-tagline">Wspólna nauka krok po kroku – bez pośpiechu, w tempie, które dyktuje Twój pies.</p>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/psie_popoludnie/" target="_blank" rel="noopener" aria-label="Instagram: psie_popoludnie">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -2457,7 +2422,7 @@
                         <li><a href="#oferta">Oferta</a></li>
                         <li><a href="#vouchery">Vouchery</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
-                        <li><a id="regulamin" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Regulamin zajęć</a></li>
+                        <li><a id="regulamin" href="https://drive.google.com/file/d/17fju8g2qj-x8nFObruFITYZj1yt7u0sK/view?usp=sharing" target="_blank" rel="noopener">Regulamin zajęć Psie Popołudnie</a></li>
                     </ul>
                 </nav>
 
@@ -2497,7 +2462,7 @@
                             <path d="M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z"></path>
                             <circle cx="12" cy="10" r="2.6"></circle>
                         </svg>
-                        Wrocław i okolice - dojeżdżam do Was
+                        Wrocław i okolice
                     </p>
                 </div>
 
