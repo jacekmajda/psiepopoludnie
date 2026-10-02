@@ -18,7 +18,7 @@
 /VOUCHER*.png
 /*.pdf
 # Regulamin jest linkowany ze strony, więc musi trafić do repozytorium.
-!/REGULAMIN ZAJĘĆ PSIE POPOŁUDNIE.pdf
+!/REGULAMIN_ZAJEC_PSIE_POPOLUDNIE.pdf
 
 .DS_Store
 __pycache__/
